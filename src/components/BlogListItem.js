@@ -1,10 +1,9 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import moment from "moment"
 
 export function BlogListItem({ post }) {
-  const { id, title, preamble, publishDate, tags, urlSegment } = post
+  const { id, title, preamble, publishDate, urlSegment } = post
   return (
     <div key={id} className="border-b border-current">
       <Link className="no-underline" to={`/blog/${urlSegment}`}>
@@ -23,5 +22,3 @@ export function BlogListItem({ post }) {
     </div>
   )
 }
-
-BlogListItem.propTypes = {}

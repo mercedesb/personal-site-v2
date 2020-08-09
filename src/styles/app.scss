@@ -21,7 +21,6 @@ h6 {
   font-weight: theme("fontWeight.normal");
   line-height: 1.4;
   margin-bottom: theme("spacing.4");
-  margin-top: theme("spacing.8");
 }
 
 h1,
@@ -65,5 +64,42 @@ svg path {
   svg g,
   svg path {
     stroke-width: 5px;
+  }
+}
+
+main {
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ul li {
+    padding-left: theme("spacing.8");
+  }
+
+  blockquote {
+    border: theme("borderWidth.default") solid theme("borderColor.current");
+    padding: theme("spacing.8");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: theme("width.3/5");
+    margin: 0 auto theme("spacing.8");
+
+    p {
+      margin: 0;
+    }
+  }
+
+  pre {
+    white-space: pre-wrap;
+    background-color: theme("colors.black");
+    color: theme("colors.white");
+    overflow: scroll;
+    padding: theme("spacing.8");
+    margin: 0 0 theme("spacing.8");
   }
 }

@@ -1,8 +1,7 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-export function Nav(props) {
+export function Nav() {
   const data = useStaticQuery(graphql`
     query {
       contentfulHome {
@@ -43,5 +42,3 @@ export function Nav(props) {
     </nav>
   )
 }
-
-Nav.propTypes = {}
