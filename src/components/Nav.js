@@ -4,14 +4,20 @@ import PropTypes from "prop-types"
 export function Nav(props) {
   const navLinks = [
     {
-      title: "Contact",
+      title: "Blog",
+      parsedLink: "/blog",
+      externalLink: false,
+      iconSvg: "",
+    },
+    {
+      title: "Talks",
       parsedLink: "#",
       externalLink: false,
       iconSvg: "",
     },
     {
-      title: "Blog",
-      parsedLink: "#",
+      title: "About",
+      parsedLink: "/about",
       externalLink: false,
       iconSvg: "",
     },
@@ -25,7 +31,7 @@ export function Nav(props) {
   return (
     <nav className="flex justify-between px-16 py-8">
       <a className="no-underline" href="/">
-        <h1 className="text-2xl">Mercedes Bernard</h1>
+        <h1 className="text-2xl m-0">Mercedes Bernard</h1>
       </a>
       <ul className="flex">
         {navLinks.map(link => (
