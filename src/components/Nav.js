@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Link } from "gatsby"
 
 export function Nav(props) {
   const navLinks = [
@@ -30,13 +31,13 @@ export function Nav(props) {
   ]
   return (
     <nav className="flex justify-between px-16 py-8">
-      <a className="no-underline" href="/">
+      <Link to="/" className="no-underline">
         <h1 className="text-2xl m-0">Mercedes Bernard</h1>
-      </a>
+      </Link>
       <ul className="flex">
         {navLinks.map(link => (
           <li className="mx-4">
-            <a href={link.parsedLink}>{link.title}</a>
+            <Link to={link.parsedLink}>{link.title}</Link>
           </li>
         ))}
       </ul>

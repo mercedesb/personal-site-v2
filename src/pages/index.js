@@ -12,8 +12,8 @@ export default function Home() {
         <div className="px-16 py-8">
           <section className="flex items-end">
             <h2 className="text-5xl w-2/3">
-              I am a values-driven, growth-oriented software engineering leader
-              passionate about coaching and creating opportunity.
+              Values-driven, growth-oriented software engineering leader
+              passionate about coaching and creating opportunity
             </h2>
             <img
               className="w-1/3 px-8"

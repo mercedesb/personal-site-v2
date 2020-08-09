@@ -1,13 +1,9 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { Nav } from "components"
+import { SecondaryPageLayout } from "components"
 
-export default function About(props) {
+export default function About() {
   return (
-    <div>
-      <div>
-        <Nav />
-      </div>
+    <SecondaryPageLayout>
       <div className="mx-auto py-8 w-1/2 ">
         <h2>Experience</h2>
         <p>
@@ -58,8 +54,6 @@ export default function About(props) {
           me know!
         </p>
       </div>
-    </div>
+    </SecondaryPageLayout>
   )
 }
-
-About.propTypes = {}
