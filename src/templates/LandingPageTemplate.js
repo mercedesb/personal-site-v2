@@ -1,5 +1,5 @@
 import React from "react"
-import { SecondaryPageLayout } from "components"
+import { SecondaryPageLayout, TalkListing } from "components"
 
 export default function LandingTemplate({ pageContext: { page } }) {
   return (
@@ -9,6 +9,7 @@ export default function LandingTemplate({ pageContext: { page } }) {
           __html: page.mainContent.childMarkdownRemark.html,
         }}
       ></div>
+      {page.showTalks && <TalkListing />}
     </SecondaryPageLayout>
   )
 }

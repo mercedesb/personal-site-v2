@@ -112,3 +112,32 @@ main {
     content: ", ";
   }
 }
+
+@mixin draw {
+  $i: 300;
+  @while $i <= 1140 {
+    &--#{$i} {
+      &:hover {
+        path {
+          stroke-dasharray: $i;
+          animation: draw-#{$i} 1.5s;
+        }
+      }
+
+      @keyframes draw-#{$i} {
+        from {
+          stroke-dashoffset: $i;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      $i: $i + 20;
+    }
+  }
+}
+
+.Draw {
+  @include draw;
+}

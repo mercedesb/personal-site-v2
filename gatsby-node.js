@@ -15,7 +15,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const filterDate = moment().format("YYYY-MM-DD")
@@ -79,6 +79,40 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
+      allContentfulTalkPage {
+        edges {
+          node {
+            id
+            title
+            mainContent {
+              childMarkdownRemark {
+                html
+              }
+            }
+            givenAt {
+              title
+              date
+              slidesLink {
+                file {
+                  url
+                }
+              }
+              links {
+                name
+                href
+              }
+            }
+            iconSvg {
+              svg {
+                svg
+              }
+            }
+            iconCssClass
+            color
+            urlSegment
+          }
+        }
+      }
     }
   `)
 
@@ -97,9 +131,8 @@ exports.createPages = async ({ actions, graphql }) => {
     })
   })
 
-  const blogPosts = result.data.allContentfulBlogPost.edges
-  const blogNodes = blogPosts.map(edge => edge.node)
-  const blogTags = _.flatten(blogNodes.map(node => node.tags))
+  const blogPosts = result.data.allContentfulBlogPost.edges.map(e => e.node)
+  const blogTags = _.flatten(blogPosts.map(node => node.tags))
   const postsPerPage = parseInt(process.env.BLOG_POST_PAGE_SIZE, 10)
   let numPages = Math.ceil(blogPosts.length / postsPerPage)
 
@@ -120,7 +153,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Create blog list pages for each category
   blogTags.forEach(tag => {
-    const matchingPosts = blogNodes.filter(
+    const matchingPosts = blogPosts.filter(
       node => node.tags && node.tags.includes(tag)
     )
     numPages = Math.ceil(matchingPosts.length / postsPerPage)
@@ -141,11 +174,21 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 
   // Create a blog post page for each post
-  blogNodes.forEach(post => {
+  blogPosts.forEach(post => {
     createPage({
       path: `/blog/${post.urlSegment}`,
       component: require.resolve(`./src/templates/BlogPostTemplate.js`),
       context: { post },
+    })
+  })
+
+  // Create a page for each talk
+  const talkPages = result.data.allContentfulTalkPage.edges
+  talkPages.forEach(({ node }) => {
+    createPage({
+      path: `/speaking/${node.urlSegment}`,
+      component: require.resolve(`./src/templates/TalkPageTemplate.js`),
+      context: { page: node },
     })
   })
 }
