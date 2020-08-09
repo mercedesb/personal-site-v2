@@ -35,8 +35,8 @@ export function Nav(props) {
         <h1 className="text-2xl m-0">Mercedes Bernard</h1>
       </Link>
       <ul className="flex">
-        {navLinks.map(link => (
-          <li className="mx-4">
+        {navLinks.map((link, index) => (
+          <li className="mx-4" key={index}>
             <Link to={link.parsedLink}>{link.title}</Link>
           </li>
         ))}

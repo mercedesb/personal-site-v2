@@ -52,3 +52,9 @@ a {
 p {
   margin-bottom: theme("spacing.8");
 }
+
+svg,
+svg g,
+svg path {
+  stroke: currentColor;
+}
