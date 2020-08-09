@@ -18,6 +18,9 @@ export default function Home() {
                 html
               }
             }
+            mainContent {
+              mainContent
+            }
             publishDate
             tags
             title

@@ -12,7 +12,7 @@ export function TertiaryPageLayout({ children, title }) {
         <header className="px-16">
           <h2 className="my-0 text-6xl">{title}</h2>
         </header>
-        <main className="px-16 py-8 w-4/5">{children}</main>
+        <main className="px-16 py-8 w-2/3">{children}</main>
       </div>
     </div>
   )

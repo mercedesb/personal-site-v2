@@ -50,6 +50,7 @@ a {
 
 p {
   margin-bottom: theme("spacing.4");
+  line-height: 1.5;
 }
 
 svg,
@@ -98,9 +99,16 @@ main {
 
   pre {
     white-space: pre-wrap;
-    // background-color: theme("colors.black");
-    // color: theme("colors.white");
-    // padding: theme("spacing.8");
     margin: 0 0 theme("spacing.8");
+  }
+
+  a {
+    font-weight: theme("fontWeight.bold");
+  }
+}
+
+.BlogPost-tag {
+  &:not(:last-child)::after {
+    content: ", ";
   }
 }

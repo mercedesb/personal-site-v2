@@ -1,8 +1,13 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import { Nav, BlogListItem } from "components"
+import { graphql } from "gatsby"
+import {
+  Nav,
+  BlogListItem,
+  BlogListCategories,
+  BlogListPageNumbers,
+} from "components"
 
-export default function BlogListTemplate({ data }) {
+export default function BlogListTemplate({ data, location }) {
   const blogPosts = data.allContentfulBlogPost.edges
   const pageInfo = data.allContentfulBlogPost.pageInfo
 
@@ -21,59 +26,13 @@ export default function BlogListTemplate({ data }) {
               return <BlogListItem post={node} />
             })}
           </main>
-          <aside className="border-l border-current border-opacity-50 pl-8 pr-32 sticky top-0">
-            <h4>Categories</h4>
-            <ul className="flex flex-col">
-              <li className="my-4">
-                <Link to={`/blog`}>All</Link>
-              </li>
-
-              {[
-                "Computer science",
-                "Mentorship",
-                "Conferences",
-                "Tips, tricks, & how-tos",
-              ].map(category => (
-                <li className="mb-8">
-                  <Link to={`/blog/${category}`}>{category}</Link>
-                </li>
-              ))}
-            </ul>
+          <aside className="border-l border-current border-opacity-50 pl-8 pr-32 sticky top-0 relative">
+            <BlogListCategories path={location.pathname} />
           </aside>
         </div>
       </div>
       <footer>
-        <ul className="flex mx-auto my-8 w-2/3 justify-center">
-          {pageInfo.hasPreviousPage && (
-            <li className="mx-8">
-              <Link to={`/blog/${pageInfo.currentPage - 1}`}>{"<<"}</Link>
-            </li>
-          )}
-          {Array.from({
-            length: 5,
-          }).map((_, index) => {
-            let indexOffset = 2
-            let pageNumber
-
-            if (pageInfo.currentPage > indexOffset) {
-              pageNumber = pageInfo.currentPage + index - indexOffset
-            } else {
-              pageNumber = index + 1
-            }
-            return (
-              <li className="mx-8">
-                <Link to={pageNumber === 1 ? `/blog` : `/blog/${pageNumber}`}>
-                  {pageNumber}
-                </Link>
-              </li>
-            )
-          })}
-          {pageInfo.hasNextPage && (
-            <li className="mx-8">
-              <Link to={`/blog/${pageInfo.currentPage + 1}`}>{">>"}</Link>
-            </li>
-          )}
-        </ul>
+        <BlogListPageNumbers {...pageInfo} />
       </footer>
     </div>
   )
@@ -90,19 +49,16 @@ export const query = graphql`
       edges {
         node {
           id
+          title
           preamble {
             childMarkdownRemark {
               html
             }
           }
-          publishDate
-          socialImage {
-            file {
-              url
-            }
+          mainContent {
+            mainContent
           }
-          tags
-          title
+          publishDate
           urlSegment
         }
       }

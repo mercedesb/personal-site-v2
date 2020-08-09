@@ -56,16 +56,19 @@ exports.createPages = async ({ actions, graphql }) => {
             id
             title
             preamble {
+              preamble
               childMarkdownRemark {
                 html
               }
             }
             mainContent {
+              mainContent
               childMarkdownRemark {
                 html
               }
             }
             publishDate
+            updatedAt
             socialImage {
               file {
                 url
@@ -95,7 +98,7 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 
   const blogPosts = result.data.allContentfulBlogPost.edges
-  const blogNodes = _.flatten(blogPosts.map(edge => edge.node))
+  const blogNodes = blogPosts.map(edge => edge.node)
   const blogTags = _.flatten(blogNodes.map(node => node.tags))
   const postsPerPage = parseInt(process.env.BLOG_POST_PAGE_SIZE, 10)
   let numPages = Math.ceil(blogPosts.length / postsPerPage)
