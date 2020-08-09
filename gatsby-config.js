@@ -40,6 +40,19 @@ module.exports = {
               icon: false,
             },
           },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "noopener noreferrer",
+            },
+          },
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: "Monokai", // Or install your favorite theme from GitHub
+            },
+          },
         ],
       },
     },

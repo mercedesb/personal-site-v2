@@ -54,23 +54,8 @@ export default function Home() {
           </section>
         </div>
       </div>
-      <section className="px-16 py-8 w-2/3">
-        <p className="text-2xl font-display mb-8">
-          In my approach to software delivery and technical leadership, I learn
-          everything I can about my client's and my team's goals to make an
-          actionable plan and create opportunities to achieve those goals.
-        </p>
-        <p className="text-2xl font-display mb-8">
-          I view my clients as partners and bring a unique blend of technical
-          expertise, non-technical language, and empathetic insight to my work.
-        </p>
-        <p className="text-2xl font-display mb-8">
-          As a leader, I strive to foster an environment where each individual’s
-          unique set of strengths and ideas have space to grow and better the
-          organization.
-        </p>
-      </section>
-      <section className="px-16 py-8 w-4/5">
+
+      <section className="px-16 pt-8 pb-16 w-4/5">
         <div className="flex items-end mb-8">
           <div
             className="w-16 text-brown-900 mr-4"
@@ -83,8 +68,10 @@ export default function Home() {
         {data.allContentfulBlogPost.edges.map(({ node }) => (
           <BlogListItem post={node} />
         ))}
-        <div>
-          <Link to="/blog">All blog posts</Link>
+        <div className="mt-4">
+          <Link to="/blog">
+            <strong>All blog posts >></strong>
+          </Link>
         </div>
       </section>
     </div>

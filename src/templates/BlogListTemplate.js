@@ -16,7 +16,7 @@ export default function BlogListTemplate({ data }) {
           <h2 className="my-0 text-6xl">Blog</h2>
         </header>
         <div className="flex justify-between">
-          <main className="px-16 pb-8 w-2/3">
+          <main className="px-16 py-8 w-2/3">
             {blogPosts.map(({ node }, index) => {
               return <BlogListItem post={node} />
             })}

@@ -18,6 +18,8 @@
     "gatsby-plugin-lodash": "^3.3.10",
     "gatsby-plugin-sass": "^2.3.12",
     "gatsby-remark-autolink-headers": "^2.3.11",
+    "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-vscode": "^3.0.1",
     "gatsby-source-contentful": "^2.3.35",
     "gatsby-transformer-remark": "^2.8.28",
     "lodash": "^4.17.19",
