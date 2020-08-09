@@ -22,16 +22,45 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const result = await graphql(`
     query {
-      allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
+      allContentfulLandingPage {
         edges {
           node {
             id
+            title
+            navTitle
+            preamble {
+              childMarkdownRemark {
+                html
+              }
+            }
             mainContent {
               childMarkdownRemark {
                 html
               }
             }
+            iconSvg {
+              svg {
+                svg
+              }
+            }
+            showBlogPosts
+            showTalks
+            showContact
+            urlSegment
+          }
+        }
+      }
+      allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
+        edges {
+          node {
+            id
+            title
             preamble {
+              childMarkdownRemark {
+                html
+              }
+            }
+            mainContent {
               childMarkdownRemark {
                 html
               }
@@ -43,7 +72,6 @@ exports.createPages = async ({ actions, graphql }) => {
               }
             }
             tags
-            title
             urlSegment
           }
         }
@@ -55,6 +83,16 @@ exports.createPages = async ({ actions, graphql }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
+
+  // Create landing pages
+  const landingPages = result.data.allContentfulLandingPage.edges
+  landingPages.forEach(({ node }) => {
+    createPage({
+      path: `/${node.urlSegment}`,
+      component: require.resolve(`./src/templates/LandingPageTemplate.js`),
+      context: { page: node },
+    })
+  })
 
   const blogPosts = result.data.allContentfulBlogPost.edges
   const blogNodes = _.flatten(blogPosts.map(edge => edge.node))
@@ -100,7 +138,6 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 
   // Create a blog post page for each post
-
   blogNodes.forEach(post => {
     createPage({
       path: `/blog/${post.urlSegment}`,

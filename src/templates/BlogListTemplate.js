@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql, Link } from "gatsby"
-import { Nav } from "components"
+import { Nav, BlogListItem } from "components"
 
 export default function BlogListTemplate({ data }) {
   const blogPosts = data.allContentfulBlogPost.edges
@@ -12,35 +12,22 @@ export default function BlogListTemplate({ data }) {
       <div>
         <Nav />
       </div>
-      <header className="flex items-end px-8">
+      <header className="flex items-end p-8">
         <div
-          className="w-32 text-brown-900"
+          className="w-24 text-brown-900 mr-4"
           dangerouslySetInnerHTML={{
             __html: data.contentfulIcon.svg.svg,
           }}
         ></div>
         <h2 className="my-0 text-6xl">Blog</h2>
       </header>
-      <div className="flex">
-        <main className="px-16 pb-8 w-4/5">
+      <div className="flex justify-between">
+        <main className="px-16 pb-8 w-2/3">
           {blogPosts.map(({ node }, index) => {
-            return (
-              <div key={node.id} className="border-b border-current">
-                <Link className="no-underline" to={`/blog/${node.urlSegment}`}>
-                  <h3>{node.title}</h3>
-                  {node.preamble && (
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: node.preamble.childMarkdownRemark.html,
-                      }}
-                    ></p>
-                  )}
-                </Link>
-              </div>
-            )
+            return <BlogListItem post={node} />
           })}
         </main>
-        <aside className="border-l border-current border-opacity-25 pl-8 sticky top-0">
+        <aside className="border-l border-current border-opacity-50 pl-8 pr-32 sticky top-0">
           <h4>Categories</h4>
           <ul className="flex flex-col">
             <li className="my-4">

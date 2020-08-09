@@ -57,4 +57,13 @@ svg,
 svg g,
 svg path {
   stroke: currentColor;
+  stroke-width: 2;
+}
+
+.logo {
+  svg,
+  svg g,
+  svg path {
+    stroke-width: 5px;
+  }
 }

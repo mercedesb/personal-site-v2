@@ -1,12 +1,26 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Link } from "gatsby"
+import moment from "moment"
 
-export function BlogListItem({ title, description }) {
+export function BlogListItem({ post }) {
+  const { id, title, preamble, publishDate, tags, urlSegment } = post
   return (
-    <a href="#" className="flex mb-16 no-underline">
-      <h3 className="w-1/2 my-0 mr-16 text-2xl underline">{title}</h3>
-      <p className="">{description}</p>
-    </a>
+    <div key={id} className="border-b border-current">
+      <Link className="no-underline" to={`/blog/${urlSegment}`}>
+        <h3 className="text-3xl">{title}</h3>
+        <p className="mb-0">
+          <strong>{moment(publishDate).format("MMMM DD, YYYY")}</strong>
+        </p>
+        {preamble && (
+          <p
+            dangerouslySetInnerHTML={{
+              __html: preamble.childMarkdownRemark.html,
+            }}
+          ></p>
+        )}
+      </Link>
+    </div>
   )
 }
 

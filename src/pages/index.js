@@ -1,8 +1,39 @@
 import React from "react"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { Nav, BlogListItem } from "components"
-import pic from "../assets/ProfilePic-2032-removebg.png"
+import headshot from "../assets/headshot.png"
 
 export default function Home() {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulBlogPost(
+        sort: { fields: publishDate, order: DESC }
+        limit: 3
+      ) {
+        edges {
+          node {
+            id
+            preamble {
+              childMarkdownRemark {
+                html
+              }
+            }
+            publishDate
+            tags
+            title
+            urlSegment
+          }
+        }
+      }
+      contentfulIcon(title: { eq: "Feather Quill" }) {
+        id
+        svg {
+          svg
+        }
+      }
+    }
+  `)
+
   return (
     <div>
       <div className="min-h-screen flex flex-col justify-between">
@@ -17,7 +48,7 @@ export default function Home() {
             </h2>
             <img
               className="w-1/3 px-8"
-              src={pic}
+              src={headshot}
               alt="Mercedes Bernard speaking"
             />
           </section>
@@ -40,14 +71,21 @@ export default function Home() {
         </p>
       </section>
       <section className="px-16 py-8 w-4/5">
-        <h3 className="text-4xl mb-8">Recent blog posts</h3>
-        {[0, 1, 2].map(post => (
-          <BlogListItem
-            title={`Title ${post} but I write really long titles`}
-            description="Read my thoughts on tech, mentorship, communication, and
-            occassionally fiber arts."
-          />
+        <div className="flex items-end mb-8">
+          <div
+            className="w-16 text-brown-900 mr-4"
+            dangerouslySetInnerHTML={{
+              __html: data.contentfulIcon.svg.svg,
+            }}
+          ></div>
+          <h3 className="my-0 text-4xl">Recent blog posts</h3>
+        </div>
+        {data.allContentfulBlogPost.edges.map(({ node }) => (
+          <BlogListItem post={node} />
         ))}
+        <div>
+          <Link to="/blog">All blog posts</Link>
+        </div>
       </section>
     </div>
   )
