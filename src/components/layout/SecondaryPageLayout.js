@@ -8,7 +8,7 @@ export function SecondaryPageLayout({ children, title, backgroundIcon }) {
       renderAfterMain={() =>
         backgroundIcon && (
           <div
-            className="absolute w-1/2 text-brown-900 top-0 right-0 opacity-05 pr-8 -z-10"
+            className="hidden absolute w-1/2 text-brown-900 top-0 right-0 opacity-05 pr-8 -z-10 lg:block"
             dangerouslySetInnerHTML={{
               __html: backgroundIcon.svg.svg,
             }}

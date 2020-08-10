@@ -16,19 +16,19 @@ export function BaseLayout({
   footerClassName,
 }) {
   return (
-    <div className="px-24 py-12">
+    <div className="px-12 lg:px-24 pt-12">
       <div>
         <Nav />
       </div>
       <div className="relative">
         {renderBeforeHeader && renderBeforeHeader()}
         <header className={`${headerClassName}`}>
-          <h2 className="my-0 text-6xl">{title}</h2>
+          <h2 className="my-0 lg:text-6xl">{title}</h2>
         </header>
         {renderAfterHeader && renderAfterHeader()}
-        {renderBeforeMain && renderBeforeMain()}
-        <div className="flex justify-between">
-          <main className={`pr-16 py-8 w-3/5 ${mainClassName}`}>
+        <div className="flex flex-wrap justify-between">
+          {renderBeforeMain && renderBeforeMain()}
+          <main className={`w-full lg:pr-16 py-8 lg:w-3/5 ${mainClassName}`}>
             {children}
           </main>
           {renderAfterMain && renderAfterMain()}

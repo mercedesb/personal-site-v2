@@ -30,11 +30,11 @@ export function Nav() {
             __html: data.contentfulIcon.svg.svg,
           }}
         ></div>
-        <h1 className="text-2xl m-0">Mercedes Bernard</h1>
+        <h1 className="text-xl lg:text-2xl m-0">Mercedes Bernard</h1>
       </Link>
       <ul className="flex">
         {data.contentfulHome.contentfulchildren.map(navLink => (
-          <li className="mx-4" key={navLink.id}>
+          <li className="mx-2 lg:mx-4" key={navLink.id}>
             <Link to={`/${navLink.urlSegment}`}>{navLink.navTitle}</Link>
           </li>
         ))}

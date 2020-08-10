@@ -8,7 +8,7 @@ export function BlogListItem({ post }) {
   return (
     <div key={id} className="border-b border-current mt-4">
       <Link className="no-underline" to={`/blog/${urlSegment}`}>
-        <h3 className="text-3xl">{title}</h3>
+        <h3>{title}</h3>
         <p className="mb-0">
           <span className="font-bold">
             {moment(publishDate).format("MMMM DD, YYYY")}

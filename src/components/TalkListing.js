@@ -24,22 +24,26 @@ export function TalkListing() {
   `)
 
   return (
-    <div className="flex flex-wrap">
-      {data.allContentfulTalkPage.edges.map(({ node }) => (
-        <div className="w-1/3 flex">
-          {/* className={`bg-${node.color}-500 text-white flex flex-col p-4 m-4 items-center no-underline justify-between w-full`} */}
-
+    <div className="flex flex-wrap lg:-mr-48">
+      {data.allContentfulTalkPage.edges.map(({ node }, index) => (
+        <div
+          className={`w-full md:w-1/2 lg:w-1/3 flex py-2 md:pr-3 ${
+            index % 3 !== 0 ? "md:pl-3" : ""
+          }`}
+        >
           <Link
-            className={`border-8 border-${node.color}-500  flex flex-col p-4 m-4 items-center no-underline justify-between w-full ${node.iconCssClass}`}
+            className={`border-8 border-${node.color}-500  flex flex-col p-4 items-center no-underline justify-between w-full ${node.iconCssClass}`}
             to={`/speaking/${node.urlSegment}`}
           >
             <div
-              className={`w-1/3 mt-4 mb-2`}
+              className={`w-1/2 mt-4 mb-2`}
               dangerouslySetInnerHTML={{
                 __html: node.iconSvg.svg.svg,
               }}
             ></div>
-            <h3 className="text-2xl text-center m-2">{node.title}</h3>
+            <h3 className="text-xl lg:text-2xl text-center m-2">
+              {node.title}
+            </h3>
           </Link>
         </div>
       ))}

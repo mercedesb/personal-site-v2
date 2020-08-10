@@ -47,7 +47,7 @@ export function RecentBlogPosts() {
             __html: data.contentfulLandingPage.iconSvg.svg.svg,
           }}
         ></div>
-        <h3 className="my-0 text-4xl">Recent blog posts</h3>
+        <h2 className="my-0">Recent blog posts</h2>
       </div>
       {data.allContentfulBlogPost.edges.map(({ node }) => (
         <BlogListItem post={node} key={node.id} />

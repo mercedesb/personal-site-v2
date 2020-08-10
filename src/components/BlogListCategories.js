@@ -25,11 +25,11 @@ export function BlogListCategories({ path }) {
   return (
     <div className="sticky top-0">
       <h4>Categories</h4>
-      <ul className="flex flex-col">
+      <ul className="flex flex-wrap lg:flex-col">
         <li
           className={`mb-2 ${decodeURI(path) === "/blog" ? "font-bold" : ""}`}
         >
-          <Link to={`/blog`} className="no-underline">
+          <Link to={`/blog`} className="mx-2 lg:mx-0 lg:no-underline">
             All
           </Link>
         </li>
@@ -41,7 +41,7 @@ export function BlogListCategories({ path }) {
               className={`mb-2 ${decodeURI(path).match(to) ? "font-bold" : ""}`}
               key={tag}
             >
-              <Link to={to} className="no-underline">
+              <Link to={to} className="mx-2 lg:mx-0 lg:no-underline">
                 {tag}
               </Link>
             </li>
