@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Nav } from "components"
 
 export function SecondaryPageLayout({ children, title, backgroundIcon }) {
@@ -24,8 +23,4 @@ export function SecondaryPageLayout({ children, title, backgroundIcon }) {
       </div>
     </div>
   )
-}
-
-SecondaryPageLayout.propTypes = {
-  children: PropTypes.object,
 }

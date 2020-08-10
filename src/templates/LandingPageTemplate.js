@@ -1,5 +1,10 @@
 import React from "react"
-import { SecondaryPageLayout, TalkListing, HtmlHead } from "components"
+import {
+  ContactForm,
+  SecondaryPageLayout,
+  TalkListing,
+  HtmlHead,
+} from "components"
 
 export default function LandingTemplate({ pageContext: { page } }) {
   return (
@@ -15,6 +20,7 @@ export default function LandingTemplate({ pageContext: { page } }) {
         }}
       ></div>
       {page.showTalks && <TalkListing />}
+      {page.showContact && <ContactForm />}
     </SecondaryPageLayout>
   )
 }

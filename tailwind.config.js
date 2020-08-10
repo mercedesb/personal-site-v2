@@ -25,6 +25,9 @@ module.exports = {
         gray: {
           500: "#574543",
         },
+        green: {
+          500: "#797d2e",
+        },
       },
       opacity: {
         "05": ".05",
