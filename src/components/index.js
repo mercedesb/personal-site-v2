@@ -1,6 +1,7 @@
 export { BlogListCategories } from "./BlogListCategories"
 export { BlogListItem } from "./BlogListItem"
 export { BlogListPageNumbers } from "./BlogListPageNumbers"
+export { HtmlHead } from "./HtmlHead"
 export { Nav } from "./Nav"
 export { PostCategories } from "./PostCategories"
 export { PostSocialShare } from "./PostSocialShare"

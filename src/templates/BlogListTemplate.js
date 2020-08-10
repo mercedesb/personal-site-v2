@@ -5,14 +5,24 @@ import {
   BlogListItem,
   BlogListCategories,
   BlogListPageNumbers,
+  HtmlHead,
 } from "components"
 
-export default function BlogListTemplate({ data, location }) {
+export default function BlogListTemplate({
+  data,
+  location,
+  pageContext: { page },
+}) {
   const blogPosts = data.allContentfulBlogPost.edges
   const pageInfo = data.allContentfulBlogPost.pageInfo
 
   return (
     <div>
+      <HtmlHead
+        title={page.title}
+        description={page.preamble.preamble}
+        path={page.urlSegment}
+      />
       <div>
         <Nav />
       </div>

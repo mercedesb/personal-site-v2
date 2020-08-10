@@ -1,12 +1,16 @@
 import React from "react"
 import { Link } from "gatsby"
 import moment from "moment"
-import { SecondaryPageLayout } from "components"
+import { SecondaryPageLayout, HtmlHead } from "components"
 
 export default function TalkPageTemplate({ pageContext: { page } }) {
-  debugger
   return (
     <SecondaryPageLayout title={page.title} backgroundIcon={page.iconSvg}>
+      <HtmlHead
+        title={page.title}
+        description={page.preamble.preamble}
+        path={`speaking/${page.urlSegment}`}
+      />
       <div
         dangerouslySetInnerHTML={{
           __html: page.mainContent.childMarkdownRemark.html,

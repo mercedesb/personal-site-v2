@@ -113,6 +113,28 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
+      contentfulLandingPage(title: { eq: "Blog" }) {
+        id
+        title
+        navTitle
+        preamble {
+          preamble
+          childMarkdownRemark {
+            html
+          }
+        }
+        mainContent {
+          childMarkdownRemark {
+            html
+          }
+        }
+        iconSvg {
+          svg {
+            svg
+          }
+        }
+        urlSegment
+      }
     }
   `)
 
@@ -131,6 +153,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
+  const blogListPage = result.data.contentfulLandingPage
   const blogPosts = result.data.allContentfulBlogPost.edges.map(e => e.node)
   const blogTags = _.flatten(blogPosts.map(node => node.tags))
   const postsPerPage = parseInt(process.env.BLOG_POST_PAGE_SIZE, 10)
@@ -147,6 +170,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         filter: { publishDate: { lte: filterDate } },
         numPages,
         currentPage: i + 1,
+        page: blogListPage,
       },
     })
   })
@@ -168,6 +192,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           filter: { publishDate: { lte: filterDate }, tags: { glob: tag } },
           numPages,
           currentPage: i + 1,
+          page: blogListPage,
         },
       })
     })

@@ -5,11 +5,18 @@ import {
   ReadingTime,
   PostCategories,
   PostSocialShare,
+  HtmlHead,
 } from "components"
 
 export default function BlogPostTemplate({ pageContext: { post } }) {
   return (
     <TertiaryPageLayout title={post.title}>
+      <HtmlHead
+        title={post.title}
+        description={post.preamble.preamble}
+        path={`blog/${post.urlSegment}`}
+        socialImage={post.socialImage ? post.socialImage.file.url : null}
+      />
       <div className="mb-8">
         <span className="mr-2 pr-2 border-r border-current">
           <ReadingTime content={post.mainContent.mainContent} />

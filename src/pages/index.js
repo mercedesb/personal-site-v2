@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { Nav, BlogListItem } from "components"
+import { Nav, BlogListItem, HtmlHead } from "components"
 import headshot from "../assets/headshot.png"
 
 export default function Home() {
@@ -39,6 +39,7 @@ export default function Home() {
 
   return (
     <div>
+      <HtmlHead />
       <div className="min-h-screen flex flex-col justify-between">
         <div>
           <Nav />
@@ -69,11 +70,11 @@ export default function Home() {
           <h3 className="my-0 text-4xl">Recent blog posts</h3>
         </div>
         {data.allContentfulBlogPost.edges.map(({ node }) => (
-          <BlogListItem post={node} />
+          <BlogListItem post={node} key={node.id} />
         ))}
         <div className="mt-4">
           <Link to="/blog">
-            <strong>All blog posts >></strong>
+            <strong>All blog posts {">>"}</strong>
           </Link>
         </div>
       </section>
