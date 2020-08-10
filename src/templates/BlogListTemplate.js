@@ -79,11 +79,5 @@ export const query = graphql`
         currentPage
       }
     }
-    contentfulIcon(title: { eq: "Feather Quill" }) {
-      id
-      svg {
-        svg
-      }
-    }
   }
 `
