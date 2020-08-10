@@ -1,6 +1,7 @@
 export { BlogListCategories } from "./BlogListCategories"
 export { BlogListItem } from "./BlogListItem"
 export { BlogListPageNumbers } from "./BlogListPageNumbers"
+export { Button } from "./Button"
 export { ContactForm } from "./ContactForm"
 export { HtmlHead } from "./HtmlHead"
 export { Nav } from "./Nav"

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Button } from "components"
 
 export function ContactForm() {
   const [showForm, setShowForm] = useState(true)
@@ -45,9 +46,7 @@ export function ContactForm() {
             <span>Message</span>
             <textarea className="mb-8 p-2" rows="4" name="message" />
           </label>
-          <button className="px-4 py-4 border rounded-sm w-48" type="submit">
-            Send
-          </button>
+          <Button type="submit">Send</Button>
         </form>
       ) : (
         <div>
