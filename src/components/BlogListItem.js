@@ -10,7 +10,9 @@ export function BlogListItem({ post }) {
       <Link className="no-underline" to={`/blog/${urlSegment}`}>
         <h3 className="text-3xl">{title}</h3>
         <p className="mb-0">
-          {moment(publishDate).format("MMMM DD, YYYY")}
+          <span className="font-bold">
+            {moment(publishDate).format("MMMM DD, YYYY")}
+          </span>
           <span className="ml-2 pl-2 border-l border-current font-normal">
             <ReadingTime content={mainContent.mainContent} />
           </span>

@@ -22,7 +22,7 @@ export function Nav() {
   `)
 
   return (
-    <nav className="flex justify-between px-16 py-8 items-baseline">
+    <nav className="flex justify-between pb-8 items-baseline">
       <Link to="/" className="no-underline flex items-baseline">
         <div
           className="w-8 text-brown-900 logo"
