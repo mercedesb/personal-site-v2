@@ -51,7 +51,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-vscode`,
             options: {
-              theme: "Monokai", // Or install your favorite theme from GitHub
+              theme: "Kimbie Dark", // Or install your favorite theme from GitHub
             },
           },
         ],
@@ -71,6 +71,22 @@ module.exports = {
           `deburring`,
           `unicode`,
           `placeholders`,
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "Table of Contents",
+              tight: false,
+              fromHeading: 2,
+              toHeading: 6,
+            },
+          },
         ],
       },
     },
