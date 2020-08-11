@@ -22,7 +22,7 @@ export function BaseLayout({
       </div>
       <div className="relative">
         {renderBeforeHeader && renderBeforeHeader()}
-        <header className={`${headerClassName}`}>
+        <header className={`pt-6 ${headerClassName}`}>
           <h2 className="my-0 lg:text-6xl">{title}</h2>
         </header>
         {renderAfterHeader && renderAfterHeader()}

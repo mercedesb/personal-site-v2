@@ -8,16 +8,16 @@ export default function Home() {
       <HtmlHead />
       <div className="lg:min-h-screen flex flex-col lg:justify-between lg:pb-12">
         <div>
-          <Nav />
+          <Nav withBorder />
         </div>
         <div className="lg:py-8">
           <section className="flex items-end flex-wrap lg:flex-row-reverse">
             <img
-              className="w-full pb-12 px-8 md:w-1/2 md:mx-auto lg:mx-0 lg:w-1/3 lg:pb-0"
+              className="w-full pt-4 pb-12 px-8 sm:w-1/2 sm:mx-auto lg:pt-0 lg:mx-0 lg:w-1/3 lg:pb-0"
               src={headshot}
               alt="Mercedes Bernard speaking"
             />
-            <h2 className="lg:text-5xl w-100 lg:w-2/3">
+            <h2 className="w-100 lg:w-2/3">
               Values-driven, growth-oriented software engineering leader
               passionate about coaching and creating opportunity
             </h2>

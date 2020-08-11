@@ -156,3 +156,6 @@ main {
 .Draw {
   @include draw;
 }
+
+button:focus {
+}

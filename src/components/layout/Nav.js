@@ -1,7 +1,8 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import { DesktopNavigation, MobileNavigation } from "components"
 
-export function Nav() {
+export function Nav({ withBorder }) {
   const data = useStaticQuery(graphql`
     query {
       contentfulHome {
@@ -22,23 +23,16 @@ export function Nav() {
   `)
 
   return (
-    <nav className="flex justify-between pb-8 items-baseline">
-      <Link to="/" className="no-underline flex items-baseline">
-        <div
-          className="w-8 text-brown-900 logo"
-          dangerouslySetInnerHTML={{
-            __html: data.contentfulIcon.svg.svg,
-          }}
-        ></div>
-        <h1 className="text-xl lg:text-2xl m-0">Mercedes Bernard</h1>
-      </Link>
-      <ul className="flex">
-        {data.contentfulHome.contentfulchildren.map(navLink => (
-          <li className="mx-2 lg:mx-4" key={navLink.id}>
-            <Link to={`/${navLink.urlSegment}`}>{navLink.navTitle}</Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <React.Fragment>
+      <DesktopNavigation
+        withBorder={withBorder}
+        links={data.contentfulHome.contentfulchildren}
+        logoSvg={data.contentfulIcon.svg.svg}
+      />
+      <MobileNavigation
+        links={data.contentfulHome.contentfulchildren}
+        logoSvg={data.contentfulIcon.svg.svg}
+      />
+    </React.Fragment>
   )
 }
