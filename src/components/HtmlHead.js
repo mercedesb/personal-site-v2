@@ -37,11 +37,7 @@ export function HtmlHead({ title, description, socialImage, path }) {
       <meta name="twitter:creator" content="@mercedescodes" />
       <meta
         name="twitter:image"
-        content={
-          socialImage
-            ? `${window.location.protocol}${socialImage}?w=800&fit=fill`
-            : ""
-        }
+        content={socialImage ? `https:${socialImage}?w=800&fit=fill` : ""}
       />
       <meta name="og:title" content={formattedTitle} />
       <meta property="og:type" content="article" />
@@ -51,11 +47,7 @@ export function HtmlHead({ title, description, socialImage, path }) {
       />
       <meta
         property="og:image"
-        content={
-          socialImage
-            ? `${window.location.protocol}${socialImage}?w=800&fit=fill`
-            : ""
-        }
+        content={socialImage ? `https:${socialImage}?w=800&fit=fill` : ""}
       />
       <meta property="og:description" content={formattedDescription} />
       <meta property="og:site_name" content="Mercedes Bernard" />

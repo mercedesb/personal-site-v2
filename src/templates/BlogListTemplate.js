@@ -31,7 +31,7 @@ export default function BlogListTemplate({
       <React.Fragment>
         <HtmlHead
           title={page.title}
-          description={page.preamble.preamble}
+          description={page.preamble ? page.preamble.preamble : null}
           path={page.urlSegment}
         />
         {blogPosts.map(({ node }, index) => {

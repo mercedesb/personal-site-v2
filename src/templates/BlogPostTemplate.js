@@ -13,7 +13,7 @@ export default function BlogPostTemplate({ pageContext: { post } }) {
     <TertiaryPageLayout title={post.title}>
       <HtmlHead
         title={post.title}
-        description={post.preamble.preamble}
+        description={post.preamble ? post.preamble.preamble : null}
         path={`blog/${post.urlSegment}`}
         socialImage={post.socialImage ? post.socialImage.file.url : null}
       />
