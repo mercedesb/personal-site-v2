@@ -21,7 +21,7 @@ export function HtmlHead({ title, description, socialImage, path }) {
     : "Mercedes Bernard | Software engineering leader"
   const formattedDescription = description
     ? description
-    : "Mercedes Bernard creates handmade products that suit your needs whether by keyboard, screen, hook, or wheel. Based in Chicago, IL."
+    : "Mercedes Bernard is a values-driven, growth-oriented software engineering leader"
 
   return (
     <Helmet>

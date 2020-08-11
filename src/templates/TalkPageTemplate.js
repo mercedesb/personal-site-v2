@@ -8,7 +8,7 @@ export default function TalkPageTemplate({ pageContext: { page } }) {
     <SecondaryPageLayout title={page.title} backgroundIcon={page.iconSvg}>
       <HtmlHead
         title={page.title}
-        description={page.preamble.preamble}
+        description={`Find resources for Mercedes Bernard's ${page.title} talk`}
         path={`speaking/${page.urlSegment}`}
       />
       <div
@@ -26,7 +26,7 @@ export default function TalkPageTemplate({ pageContext: { page } }) {
               <div className="">
                 {event.slidesLink && (
                   <Link
-                    className="border-r-2 mr-4 pr-4"
+                    className="border-r-2 mr-2 pr-2"
                     to={event.slidesLink.file.url}
                   >
                     Slides
@@ -34,7 +34,7 @@ export default function TalkPageTemplate({ pageContext: { page } }) {
                 )}
                 {event.links.map(link => (
                   <Link
-                    className="border-r-2 mr-4 pr-4"
+                    className="border-r-2 mr-2 pr-2"
                     key={link.href}
                     to={link.href}
                   >
