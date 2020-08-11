@@ -66,7 +66,7 @@ a {
 }
 
 p {
-  margin-bottom: theme("spacing.4");
+  margin-bottom: theme("spacing.8");
   line-height: 1.5;
 }
 
@@ -157,5 +157,51 @@ main {
   @include draw;
 }
 
-button:focus {
+/* Add just enough margin so elements don't get crowded by focus state */
+button,
+input,
+textarea {
+  margin-top: 2px;
+}
+
+/* Remove the dotted outline in Firefox */
+button::-moz-focus-inner,
+input::-moz-focus-inner,
+textarea::-moz-focus-inner,
+a::-moz-focus-inner {
+  border-style: none;
+  margin-top: 2px;
+}
+
+button:focus,
+input:focus,
+textarea:focus,
+a:focus {
+  /* Adds a white border around the button, along with a blue glow. The white and blue have a color contrast ratio of at least 3:1, which means this will work against any background color. */
+  box-shadow: 0 0 0 2px theme("colors.white"),
+    0 0 3px 5px theme("colors.brown.500");
+  /* NOTE: box-shadow is invisible in Windows high-contrast mode, so we need to add a transparent outline, which actually does show up in high-contrast mode. */
+  outline: 2px dotted transparent;
+  outline-offset: 2px;
+}
+
+.up {
+  transform: rotate(180deg);
+}
+
+.left {
+  transform: rotate(-90deg);
+}
+
+.right {
+  transform: rotate(90deg);
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
