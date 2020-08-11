@@ -22,6 +22,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const result = await graphql(`
     query {
+      contentfulHome {
+        title
+        preamble {
+          preamble
+          childMarkdownRemark {
+            html
+          }
+        }
+        mainContent {
+          childMarkdownRemark {
+            html
+          }
+        }
+        mainImage {
+          file {
+            url
+          }
+        }
+      }
       allContentfulLandingPage {
         edges {
           node {
@@ -29,6 +48,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             title
             navTitle
             preamble {
+              preamble
               childMarkdownRemark {
                 html
               }
@@ -158,6 +178,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
+
+  // Create home page
+  const homePage = result.data.contentfulHome
+  createPage({
+    path: "/",
+    component: require.resolve(`./src/templates/HomePageTemplate.js`),
+    context: { page: homePage },
+  })
 
   // Create landing pages
   const landingPages = result.data.allContentfulLandingPage.edges
