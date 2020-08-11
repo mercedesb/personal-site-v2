@@ -43,6 +43,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 svg
               }
             }
+            ctaLinks {
+              ... on ContentfulLandingPage {
+                id
+                urlSegment
+                navTitle
+                title
+              }
+              ... on ContentfulCtaLink {
+                id
+                title
+                internalLink {
+                  urlSegment
+                }
+                externalLink
+              }
+            }
             showBlogPosts
             showTalks
             showContact

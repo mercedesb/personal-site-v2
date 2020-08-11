@@ -1,11 +1,16 @@
 import React from "react"
 import { BaseLayout } from "components"
 
-export function SecondaryPageLayout({ children, title, backgroundIcon }) {
+export function SecondaryPageLayout({
+  children,
+  title,
+  backgroundIcon,
+  ...props
+}) {
   return (
     <BaseLayout
       title={title}
-      renderAfterMain={() =>
+      renderBeforeMain={() =>
         backgroundIcon && (
           <div
             className="hidden absolute w-1/2 text-brown-900 top-0 right-0 opacity-05 pr-8 -z-10 lg:block"
@@ -15,6 +20,7 @@ export function SecondaryPageLayout({ children, title, backgroundIcon }) {
           ></div>
         )
       }
+      {...props}
     >
       {children}
     </BaseLayout>

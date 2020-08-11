@@ -1,6 +1,10 @@
 import React from "react"
 import { BaseLayout } from "components"
 
-export function TertiaryPageLayout({ children, title }) {
-  return <BaseLayout title={title}>{children}</BaseLayout>
+export function TertiaryPageLayout({ children, title, ...props }) {
+  return (
+    <BaseLayout title={title} {...props}>
+      {children}
+    </BaseLayout>
+  )
 }
