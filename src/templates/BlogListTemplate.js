@@ -24,7 +24,9 @@ export default function BlogListTemplate({
           <BlogListCategories path={location.pathname} />
         </aside>
       )}
-      renderFooter={() => <BlogListPageNumbers {...pageInfo} />}
+      renderFooter={() => (
+        <BlogListPageNumbers {...pageInfo} path={location.pathname} />
+      )}
     >
       <React.Fragment>
         <HtmlHead

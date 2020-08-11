@@ -54,7 +54,7 @@ export function RecentBlogPosts() {
       ))}
       <div className="mt-4">
         <Link to="/blog">
-          <strong>All blog posts {">>"}</strong>
+          <strong>All blog posts</strong>
         </Link>
       </div>
     </React.Fragment>
