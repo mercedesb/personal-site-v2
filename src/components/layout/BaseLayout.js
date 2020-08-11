@@ -11,6 +11,7 @@ export function BaseLayout({
   renderFooter,
   renderBeforeFooter,
   renderAfterFooter,
+  containerClassName,
   mainClassName,
   headerClassName,
   footerClassName,
@@ -20,7 +21,7 @@ export function BaseLayout({
       <div>
         <Nav />
       </div>
-      <div className="relative">
+      <div className={`relative ${containerClassName}`}>
         {renderBeforeHeader && renderBeforeHeader()}
         <header className={`pt-6 ${headerClassName}`}>
           <h2 className="my-0 lg:text-6xl">{title}</h2>

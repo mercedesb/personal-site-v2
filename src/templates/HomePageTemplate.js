@@ -1,6 +1,5 @@
 import React from "react"
 import { Nav, HtmlHead, RecentBlogPosts } from "components"
-import headshot from "../assets/headshot.png"
 
 export default function HomePageTemplate({ pageContext: { page } }) {
   return (
