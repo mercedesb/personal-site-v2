@@ -17,7 +17,7 @@ export function BaseLayout({
   footerClassName,
 }) {
   return (
-    <div className="px-12 pt-4 md:pt-12 lg:px-24">
+    <div className="px-8 pt-4 md:px-12 md:pt-12 lg:px-24">
       <div>
         <Nav />
       </div>

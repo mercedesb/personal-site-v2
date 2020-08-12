@@ -35,7 +35,7 @@ export default function BlogListTemplate({
           path={page.urlSegment}
         />
         {blogPosts.map(({ node }, index) => {
-          return <BlogListItem post={node} />
+          return <BlogListItem key={node.id} post={node} />
         })}
       </React.Fragment>
     </BaseLayout>
