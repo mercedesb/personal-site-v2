@@ -10,7 +10,7 @@ export function CtaLinks({ links }) {
     return {
       id: link.id,
       title: link.navTitle || link.title,
-      to: `/${urlSegment}` || link.externalLink,
+      to: urlSegment ? `/${urlSegment}` : link.externalLink,
     }
   })
 
