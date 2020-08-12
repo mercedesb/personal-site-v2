@@ -3,7 +3,7 @@ import { Nav, HtmlHead, RecentBlogPosts } from "components"
 
 export default function HomePageTemplate({ pageContext: { page } }) {
   return (
-    <div className="px-12 lg:px-24 pt-12">
+    <div className="px-12 pt-4 md:pt-12 lg:px-24">
       <HtmlHead />
       <div className="lg:min-h-screen flex flex-col lg:justify-between lg:pb-12">
         <div>
