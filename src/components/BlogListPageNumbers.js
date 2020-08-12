@@ -21,11 +21,12 @@ export function BlogListPageNumbers({
 
   const pageNumberIsActive = (pageNumber, urlPath) => {
     let active = false
+    //eslint-disable-next-line no-useless-escape
     if (pageNumber === 1 && urlPath.match(/[^0-9\/]\/?$/)) {
       active = true
     } else if (
       pageNumber > 1 &&
-      urlPath.match(new RegExp(`${pageNumber}\/?$`))
+      urlPath.match(new RegExp(`${pageNumber}\/?$`)) //eslint-disable-line no-useless-escape
     ) {
       active = true
     }
