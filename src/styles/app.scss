@@ -97,6 +97,10 @@ main {
     list-style-type: disc;
   }
 
+  li > p {
+    margin-bottom: 0;
+  }
+
   blockquote {
     border: theme("borderWidth.default") solid theme("borderColor.current");
     padding: theme("spacing.8") theme("spacing.8") theme("spacing.4");
