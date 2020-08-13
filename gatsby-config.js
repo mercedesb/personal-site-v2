@@ -51,7 +51,12 @@ module.exports = {
           {
             resolve: `gatsby-remark-vscode`,
             options: {
-              theme: "Kimbie Dark", // Or install your favorite theme from GitHub
+              theme: {
+                default: "Verus",
+              },
+              extensions: [
+                "/Users/mercedes/Git/Personal/personal-site-v2/verus-0.1.6.vsix",
+              ],
             },
           },
           {
