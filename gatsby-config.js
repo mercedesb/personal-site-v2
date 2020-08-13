@@ -54,6 +54,15 @@ module.exports = {
               theme: "Kimbie Dark", // Or install your favorite theme from GitHub
             },
           },
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "Table of Contents",
+              tight: false,
+              fromHeading: 2,
+              toHeading: 6,
+            },
+          },
         ],
       },
     },
@@ -71,22 +80,6 @@ module.exports = {
           `deburring`,
           `unicode`,
           `placeholders`,
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-table-of-contents`,
-            options: {
-              exclude: "Table of Contents",
-              tight: false,
-              fromHeading: 2,
-              toHeading: 6,
-            },
-          },
         ],
       },
     },
