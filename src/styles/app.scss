@@ -144,6 +144,10 @@ main {
         path {
           stroke-dasharray: $i;
           animation: draw-#{$i} 1.5s;
+
+          @media (prefers-reduced-motion: reduce) {
+            animation: none;
+          }
         }
       }
 
