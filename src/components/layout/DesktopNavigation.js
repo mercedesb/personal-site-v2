@@ -10,7 +10,7 @@ export function DesktopNavigation({ links, logoSvg, withBorder }) {
     >
       <Link to="/" className="no-underline flex items-baseline">
         <div
-          className="w-8 text-brown-900 logo"
+          className="w-8 text-brown-900 logo dark:text-brown-100"
           dangerouslySetInnerHTML={{
             __html: logoSvg,
           }}

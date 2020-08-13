@@ -42,7 +42,7 @@ export function RecentBlogPosts() {
     <React.Fragment>
       <div className="flex items-end mb-8">
         <div
-          className="w-16 text-brown-900 mr-4"
+          className="w-16 text-brown-900 mr-4 dark:text-brown-100"
           dangerouslySetInnerHTML={{
             __html: data.contentfulLandingPage.iconSvg.svg.svg,
           }}

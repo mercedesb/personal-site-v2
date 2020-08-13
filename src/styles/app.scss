@@ -9,6 +9,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: theme("fontFamily.body");
+
+  @media (prefers-color-scheme: dark) {
+    background-color: theme("colors.brown.900");
+    color: theme("colors.brown.100");
+  }
 }
 
 h1,
@@ -165,6 +170,13 @@ button,
 input,
 textarea {
   margin-top: 2px;
+}
+
+input,
+textarea {
+  @media (prefers-color-scheme: dark) {
+    background-color: theme("colors.brown.100");
+  }
 }
 
 /* Remove the dotted outline in Firefox */
