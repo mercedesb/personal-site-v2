@@ -7,6 +7,7 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+const path = require("path")
 
 module.exports = {
   /* Your site config here */
@@ -54,9 +55,7 @@ module.exports = {
               theme: {
                 default: "Verus",
               },
-              extensions: [
-                "/Users/mercedes/Git/Personal/personal-site-v2/verus-0.1.6.vsix",
-              ],
+              extensions: [path.resolve("verus-0.1.6.vsix")],
             },
           },
           {
