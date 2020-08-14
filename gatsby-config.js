@@ -7,6 +7,7 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+const path = require("path")
 
 module.exports = {
   /* Your site config here */
@@ -51,7 +52,10 @@ module.exports = {
           {
             resolve: `gatsby-remark-vscode`,
             options: {
-              theme: "Kimbie Dark",
+              theme: {
+                default: "Verus",
+              },
+              extensions: [path.resolve("verus-0.1.6.vsix")],
             },
           },
           {
