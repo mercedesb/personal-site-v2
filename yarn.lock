@@ -6208,6 +6208,16 @@ follow-redirects@1.5.10, follow-redirects@^1.0.0:
   dependencies:
     debug "=3.1.0"
 
+fontsource-libre-baskerville@^3.0.9:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/fontsource-libre-baskerville/-/fontsource-libre-baskerville-3.0.9.tgz#74211845f9a085f921c7c25d785389bc8e927b9b"
+  integrity sha512-mIbhAuHh1w6cY0QbbEXZDgQzXMYk/Vl8VUrpT5Fe3Ny7ehb6Wd53mq/zdWeu9HyfQGtu4A9gZuHaN1coT8QrJw==
+
+fontsource-poppins@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/fontsource-poppins/-/fontsource-poppins-3.0.10.tgz#42b194661b4c43eb234f683ca1616286ddb2a18c"
+  integrity sha512-3+1xBgh/HPPwvP0M7I6BEoZOqiT+kH7IUSFlKCm9r1j/Mdm/AqyeU+PMOZYt+Kpqm0OLgpDH56mqEksaycpinQ==
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
