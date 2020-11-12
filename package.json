@@ -14,6 +14,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "fontsource-libre-baskerville": "^3.0.9",
+    "fontsource-poppins": "^3.0.10",
     "gatsby": "^2.24.26",
     "gatsby-plugin-lodash": "^3.3.10",
     "gatsby-plugin-react-helmet": "^3.3.10",
