@@ -1,16 +1,8 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's hello-world starter
-</h1>
+# Personal website
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+## Deploying
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+The project is built in the [Gatsby Cloud](https://www.gatsbyjs.com/dashboard/) and deployed via [Netlify](https://app.netlify.com/sites/). Pushes to the `production` branch and updates to CMS content are deployed automatically. If your content is not being deployed, check that your instance in Gatsby Cloud has not gone idle.
 
 ## 🚀 Quick start
 
