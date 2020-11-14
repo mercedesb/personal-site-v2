@@ -1,5 +1,9 @@
 import React from "react"
 import { Nav, HtmlHead, RecentBlogPosts } from "components"
+import "fontsource-libre-baskerville"
+import "fontsource-libre-baskerville/700.css"
+import "fontsource-poppins"
+import "fontsource-poppins/700.css"
 
 export default function HomePageTemplate({ pageContext: { page } }) {
   return (
