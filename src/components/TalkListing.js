@@ -5,7 +5,7 @@ import { TalkListItem } from "components"
 export function TalkListing() {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulTalkPage(sort: { fields: createdAt, order: DESC }) {
+      allContentfulTalkPage(sort: { fields: reverseSortOrder, order: DESC }) {
         edges {
           node {
             id
@@ -18,6 +18,7 @@ export function TalkListing() {
             iconCssClass
             color
             urlSegment
+            reverseSortOrder
           }
         }
       }
@@ -35,6 +36,8 @@ export function TalkListing() {
       borderColor = "border-yellow-500"
     } else if (color === "gray") {
       borderColor = "border-gray-500"
+    } else if (color === "green") {
+      borderColor = "border-green-500"
     }
     return borderColor
   }
