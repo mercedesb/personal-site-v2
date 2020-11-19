@@ -5,7 +5,7 @@ import { TalkListItem } from "components"
 export function TalkListing() {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulTalkPage(sort: { fields: updatedAt, order: DESC }) {
+      allContentfulTalkPage(sort: { fields: createdAt, order: DESC }) {
         edges {
           node {
             id
