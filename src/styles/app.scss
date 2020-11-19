@@ -138,7 +138,7 @@ main {
 
 @mixin draw {
   $i: 300;
-  @while $i <= 1140 {
+  @while $i <= 2000 {
     &--#{$i} {
       &:hover {
         path {

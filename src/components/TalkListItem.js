@@ -6,9 +6,17 @@ export function TalkListItem({
   className,
   urlSegment,
   iconSvg,
+  iconOrientation,
   iconCssClass,
   index,
 }) {
+  let iconClassname
+  if (iconOrientation === "square" || iconOrientation === "portrait") {
+    iconClassname = "w-1/2 mt-4 mb-2"
+  } else if (iconOrientation === "landscape") {
+    iconClassname = "w-3/4 mt-8 mb-2"
+  }
+
   return (
     <div
       className={`w-full md:w-1/2 lg:w-1/3 flex py-2 md:pr-3 ${
@@ -20,7 +28,7 @@ export function TalkListItem({
         to={`/speaking/${urlSegment}`}
       >
         <div
-          className={`w-1/2 mt-4 mb-2`}
+          className={iconClassname}
           dangerouslySetInnerHTML={{
             __html: iconSvg,
           }}

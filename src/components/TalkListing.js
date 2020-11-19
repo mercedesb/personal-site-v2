@@ -14,6 +14,7 @@ export function TalkListing() {
               svg {
                 svg
               }
+              orientation
             }
             iconCssClass
             color
@@ -50,6 +51,9 @@ export function TalkListing() {
             title={node.title}
             urlSegment={node.urlSegment}
             iconSvg={node.iconSvg ? node.iconSvg.svg.svg : ""}
+            iconOrientation={
+              node.iconSvg ? node.iconSvg.orientation || "square" : "square"
+            }
             iconCssClass={node.iconCssClass}
             className={getBorderColorClass(node.color)}
             index={index}
