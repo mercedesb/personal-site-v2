@@ -15,7 +15,13 @@ import Favicon32 from "../assets/favicon/favicon-32x32.png"
 import Favicon96 from "../assets/favicon/favicon-96x96.png"
 import MSTile from "../assets/favicon/ms-icon-144x144.png"
 
-export function HtmlHead({ title, description, socialImage, path }) {
+export function HtmlHead({
+  title,
+  description,
+  socialImage,
+  path,
+  canonicalUrl,
+}) {
   const formattedTitle = title
     ? `${title} | Mercedes Bernard`
     : "Mercedes Bernard | Software engineering leader"
@@ -55,6 +61,7 @@ export function HtmlHead({ title, description, socialImage, path }) {
       />
       <meta property="og:description" content={formattedDescription} />
       <meta property="og:site_name" content="Mercedes Bernard" />
+      {!!canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
       <link rel="apple-touch-icon" sizes="57x57" href={AppleIcon57} />
       <link rel="apple-touch-icon" sizes="60x60" href={AppleIcon60} />
       <link rel="apple-touch-icon" sizes="72x72" href={AppleIcon72} />

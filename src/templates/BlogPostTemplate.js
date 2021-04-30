@@ -16,6 +16,7 @@ export default function BlogPostTemplate({ pageContext: { post } }) {
         description={post.preamble ? post.preamble.preamble : null}
         path={`blog/${post.urlSegment}`}
         socialImage={post.socialImage ? post.socialImage.file.url : null}
+        canonicalUrl={post.canonicalUrl}
       />
       <div className="mb-8">
         <span className="mr-2 pr-2 border-r border-current">
