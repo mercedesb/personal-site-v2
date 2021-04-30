@@ -112,6 +112,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             }
             tags
             urlSegment
+            canonicalUrl
           }
         }
       }
