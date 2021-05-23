@@ -36,15 +36,30 @@ export function ContactForm() {
         <form className="flex flex-col w-full lg:w-3/4" onSubmit={handleSubmit}>
           <label className="flex flex-col">
             <span>Name</span>
-            <input className="mb-8 p-2" type="text" name="name" required />
+            <input
+              className="mb-8 p-2 dark:text-brown-900"
+              type="text"
+              name="name"
+              required
+            />
           </label>
           <label className="flex flex-col">
             <span>Email</span>
-            <input className="mb-8 p-2" type="email" name="email" required />
+            <input
+              className="mb-8 p-2 dark:text-brown-900"
+              type="email"
+              name="email"
+              required
+            />
           </label>
           <label className="flex flex-col">
             <span>Message</span>
-            <textarea className="mb-8 p-2" rows="4" name="message" required />
+            <textarea
+              className="mb-8 p-2 dark:text-brown-900"
+              rows="4"
+              name="message"
+              required
+            />
           </label>
           <Button type="submit">Send</Button>
         </form>
