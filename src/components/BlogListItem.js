@@ -18,12 +18,12 @@ export function BlogListItem({ post }) {
           </span>
         </p>
         {preamble && (
-          <p
-            className="font-normal"
+          <div
+            className="font-normal mt-4"
             dangerouslySetInnerHTML={{
               __html: preamble.childMarkdownRemark.html,
             }}
-          ></p>
+          ></div>
         )}
       </Link>
     </div>
