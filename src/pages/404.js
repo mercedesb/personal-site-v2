@@ -1,7 +1,7 @@
 import React from "react"
 import { BaseLayout } from "components"
 
-export default function (props) {
+export default function NotFound(props) {
   return (
     <BaseLayout
       title="Page not found"
