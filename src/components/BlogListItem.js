@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import moment from "moment"
+import { DateUtils } from "utils"
 import { ReadingTime } from "components"
 
 export function BlogListItem({ post }) {
@@ -10,9 +10,7 @@ export function BlogListItem({ post }) {
       <Link className="no-underline" to={`/blog/${urlSegment}`}>
         <h3>{title}</h3>
         <p className="mb-0">
-          <span className="font-bold">
-            {moment(publishDate).format("MMMM DD, YYYY")}
-          </span>
+          <span className="font-bold">{DateUtils.format(publishDate)}</span>
           <span className="ml-2 pl-2 border-l border-current font-normal">
             <ReadingTime content={mainContent.mainContent} />
           </span>

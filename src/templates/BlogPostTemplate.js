@@ -1,5 +1,5 @@
 import React from "react"
-import moment from "moment"
+import { DateUtils } from "utils"
 import {
   TertiaryPageLayout,
   ReadingTime,
@@ -9,6 +9,9 @@ import {
 } from "components"
 
 export default function BlogPostTemplate({ pageContext: { post } }) {
+  const dates = [new Date(post.publishDate), new Date(post.updatedAt)]
+  const updatedDate = Math.max(...dates)
+
   return (
     <TertiaryPageLayout title={post.title}>
       <HtmlHead
@@ -23,9 +26,9 @@ export default function BlogPostTemplate({ pageContext: { post } }) {
           <ReadingTime content={post.mainContent.mainContent} />
         </span>
         <span className="mr-2 pr-2 border-r border-current">
-          Published {moment(post.publishDate).format("MMMM DD, YYYY")}
+          Published {DateUtils.format(post.publishDate)}
         </span>
-        <span>Updated {moment(post.updatedAt).format("MMMM DD, YYYY")}</span>
+        <span>Updated {DateUtils.format(updatedDate)}</span>
       </div>
       <div
         dangerouslySetInnerHTML={{
