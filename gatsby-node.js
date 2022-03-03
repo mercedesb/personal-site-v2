@@ -1,5 +1,5 @@
 const path = require("path")
-const moment = require("moment")
+const dayjs = require("dayjs")
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -10,6 +10,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       alias: {
         components: path.resolve(__dirname, "src/components"),
+        utils: path.resolve(__dirname, "src/utils"),
       },
     },
   })
@@ -18,7 +19,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
-  const filterDate = moment().format("YYYY-MM-DD")
+  const filterDate = dayjs().format("YYYY-MM-DD")
 
   const result = await graphql(`
     query {

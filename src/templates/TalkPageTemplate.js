@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import moment from "moment"
+import { DateUtils } from "utils"
 import { SecondaryPageLayout, HtmlHead } from "components"
 
 export default function TalkPageTemplate({ pageContext: { page } }) {
@@ -41,7 +41,7 @@ export default function TalkPageTemplate({ pageContext: { page } }) {
                     {link.name}
                   </Link>
                 ))}
-                <em>{moment(event.date).format("MMMM DD, YYYY")}</em>
+                <em>{DateUtils.format(event.date)}</em>
               </div>
             </div>
           ))}
