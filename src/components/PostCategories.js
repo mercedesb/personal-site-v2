@@ -8,7 +8,7 @@ export function PostCategories({ tags }) {
         <em className="mr-4">Find related posts:</em>
 
         {tags.map(tag => (
-          <Link to={`/blog/${tag}`} className="mr-2 BlogPost-tag">
+          <Link key={tag} to={`/blog/${tag}`} className="mr-2 BlogPost-tag">
             {tag}
           </Link>
         ))}
