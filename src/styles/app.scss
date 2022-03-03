@@ -102,6 +102,11 @@ main {
     list-style-type: disc;
   }
 
+  li > ul,
+  li > ol {
+    margin-bottom: 0;
+  }
+
   li > p {
     margin-bottom: 0;
   }
