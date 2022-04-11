@@ -5,6 +5,13 @@ import { ReadingTime } from "components"
 
 export function BlogListItem({ post }) {
   const { id, title, preamble, publishDate, urlSegment, mainContent } = post
+  const parsedMainContent = !!mainContent.mainContent
+    ? mainContent.mainContent
+    : mainContent
+  const parsedPreamble = preamble.childMarkdownRemark
+    ? preamble.childMarkdownRemark.html
+    : `<p>${preamble}</p>`
+
   return (
     <div key={id} className="border-b border-current mt-4">
       <Link className="no-underline" to={`/blog/${urlSegment}`}>
@@ -12,14 +19,14 @@ export function BlogListItem({ post }) {
         <p className="mb-0">
           <span className="font-bold">{DateUtils.format(publishDate)}</span>
           <span className="ml-2 pl-2 border-l border-current font-normal">
-            <ReadingTime content={mainContent.mainContent} />
+            <ReadingTime content={parsedMainContent} />
           </span>
         </p>
-        {preamble && (
+        {parsedPreamble && (
           <div
             className="font-normal mt-4"
             dangerouslySetInnerHTML={{
-              __html: preamble.childMarkdownRemark.html,
+              __html: parsedPreamble,
             }}
           ></div>
         )}
