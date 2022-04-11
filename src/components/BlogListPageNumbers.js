@@ -44,7 +44,7 @@ export function BlogListPageNumbers({
   const basePath = getBasePath()
 
   return (
-    <ul className="flex mx-auto my-8 w-2/3 justify-center">
+    <ul className="flex mx-auto py-8 w-2/3 justify-center">
       {hasPreviousPage && (
         <li className="mx-4 text-xl md:mx-8">
           <Link

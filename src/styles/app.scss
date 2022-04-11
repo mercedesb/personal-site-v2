@@ -3,18 +3,43 @@
 @tailwind utilities;
 
 body {
-  background-color: theme("colors.brown.100");
-  color: theme("colors.brown.900");
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: theme("fontFamily.body");
+}
+
+/* THEMING */
+
+body {
 
   @media (prefers-color-scheme: dark) {
     background-color: theme("colors.brown.900");
     color: theme("colors.brown.100");
+
+    input,
+    textarea {
+      background-color: theme("colors.brown.100");
+    }
   }
+
+  .light {
+    background-color: theme("colors.brown.100");
+    color: theme("colors.brown.900");
+  }
+
+  .dark {
+    background-color: theme("colors.brown.900");
+    color: theme("colors.brown.100");
+
+    input,
+    textarea {
+      background-color: theme("colors.brown.100");
+    }
+  }
+
 }
+
 
 h1,
 h2,
@@ -181,13 +206,6 @@ textarea {
   margin-top: 2px;
 }
 
-input,
-textarea {
-  @media (prefers-color-scheme: dark) {
-    background-color: theme("colors.brown.100");
-  }
-}
-
 /* Remove the dotted outline in Firefox */
 button::-moz-focus-inner,
 input::-moz-focus-inner,
@@ -201,7 +219,7 @@ button:focus,
 input:focus,
 textarea:focus,
 a:focus {
-  /* Adds a white border around the button, along with a blue glow. The white and blue have a color contrast ratio of at least 3:1, which means this will work against any background color. */
+  /* Adds a white border around the button, along with a brown glow. The white and brown have a color contrast ratio of at least 3:1, which means this will work against any background color. */
   box-shadow: 0 0 0 2px theme("colors.white"),
     0 0 3px 5px theme("colors.brown.500");
   /* NOTE: box-shadow is invisible in Windows high-contrast mode, so we need to add a transparent outline, which actually does show up in high-contrast mode. */
@@ -221,11 +239,34 @@ a:focus {
   transform: rotate(90deg);
 }
 
-.sr-only {
+.toggle::before {
+  content: '';
   position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+  width: theme('spacing.3');
+  height: theme('spacing.3');
+  top: .375rem;
+  left: .125rem;
+  background-color: theme('colors.white');
+  border-radius: 9999px;
+  z-index: 10;
+  transition-duration: 200ms;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
+
+.toggle.checked::before {
+  transform: translate(135%);
+}
+
+input:focus ~ .toggle {
+  /* Adds a white border around the button, along with a brown glow. The white and brown have a color contrast ratio of at least 3:1, which means this will work against any background color. */
+  box-shadow: 0 0 0 2px theme("colors.white"),
+    0 0 3px 5px theme("colors.brown.500");
+  /* NOTE: box-shadow is invisible in Windows high-contrast mode, so we need to add a transparent outline, which actually does show up in high-contrast mode. */
+  outline: 2px dotted transparent;
+  outline-offset: 2px;
+  }

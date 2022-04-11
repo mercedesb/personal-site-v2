@@ -1,5 +1,6 @@
 module.exports = {
   purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
+  darkMode: "class",
   theme: {
     fontFamily: {
       display: ["Libre Baskerville", "serif"],
@@ -14,6 +15,7 @@ module.exports = {
         black: "#252627",
         brown: {
           100: "#e6ddd1",
+          300: "#c2ac8f",
           500: "#aa916d",
           900: "#593E0C",
         },
@@ -32,6 +34,7 @@ module.exports = {
         green: {
           500: "#797d2e",
         },
+        white: "#FFF",
       },
       opacity: {
         "05": ".05",

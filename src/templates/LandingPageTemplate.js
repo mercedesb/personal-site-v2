@@ -15,7 +15,7 @@ export default function LandingTemplate({ pageContext: { page } }) {
       renderAfterMain={() =>
         page.ctaLinks &&
         page.ctaLinks.length > 0 && (
-          <aside className="w-full lg:w-auto lg:pl-8 lg:pr-32">
+          <aside className="w-full pb-8 lg:w-auto lg:pl-8 lg:pr-32">
             <CtaLinks links={page.ctaLinks} />
           </aside>
         )
