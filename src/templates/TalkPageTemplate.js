@@ -21,7 +21,7 @@ export default function TalkPageTemplate({ pageContext: { page } }) {
           .sort(event => event.date)
           .reverse()
           .map(event => (
-            <div className="mt-12">
+            <div className="mt-12" key={event.date}>
               <h3 className="mb-2">{event.title}</h3>
               <div className="">
                 {event.slidesLink && (
