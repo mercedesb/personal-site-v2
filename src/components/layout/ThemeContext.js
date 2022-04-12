@@ -12,7 +12,7 @@ export const ThemeContext = createContext({
 export function ThemeProvider({ children }) {
   // set in Gatsby's onRenderBody (via ./utils/theme.js)
   const [theme, setTheme] = useState(
-    !!window ? window.__theme : Constants.LIGHT_THEME
+    typeof window !== "undefined" ? window.__theme : Constants.LIGHT_THEME
   )
 
   const styleConfig = resolveConfig(tailwindConfig)

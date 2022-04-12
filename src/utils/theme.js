@@ -1,7 +1,9 @@
 import { Constants, LocalStorageUtils } from "utils"
 
 function setTheme(theme) {
-  window.__theme = theme
+  if (typeof window !== "undefined") {
+    window.__theme = theme
+  }
 }
 
 const theme = {

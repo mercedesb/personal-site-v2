@@ -10,7 +10,7 @@ export default function Search() {
   const [blogPosts, setBlogPosts] = useState([])
 
   useEffect(() => {
-    if (window.location.search) {
+    if (typeof window !== "undefined" && window.location.search) {
       const queryParams = qs.parse(window.location.search.substring(1))
       const searchTerm = queryParams["q"]
       setQuery(searchTerm)
@@ -41,9 +41,12 @@ export default function Search() {
           </h3>
         )}
 
-        {blogPosts.map((post, index) => {
-          return <BlogListItem key={post.id} post={post} />
-        })}
+        {blogPosts.length === 0 && <p>Sorry, no matching blog posts found.</p>}
+
+        {blogPosts.length > 0 &&
+          blogPosts.map((post, index) => {
+            return <BlogListItem key={post.id} post={post} />
+          })}
       </React.Fragment>
     </BaseLayout>
   )
