@@ -5,11 +5,11 @@ import qs from "qs"
 
 export default function Search() {
   const { searchBlogPosts } = useContentful()
+
   const [query, setQuery] = useState("")
   const [blogPosts, setBlogPosts] = useState([])
 
   useEffect(() => {
-    debugger
     if (window.location.search) {
       const queryParams = qs.parse(window.location.search.substring(1))
       const searchTerm = queryParams["q"]
@@ -24,7 +24,7 @@ export default function Search() {
         )
       })
     }
-  }, [])
+  }, []) //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <BaseLayout title="Search">

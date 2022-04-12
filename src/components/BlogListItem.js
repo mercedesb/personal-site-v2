@@ -5,10 +5,10 @@ import { ReadingTime } from "components"
 
 export function BlogListItem({ post }) {
   const { id, title, preamble, publishDate, urlSegment, mainContent } = post
-  const parsedMainContent = !!mainContent.mainContent
-    ? mainContent.mainContent
-    : mainContent
-  const parsedPreamble = preamble.childMarkdownRemark
+
+  const ssrList = !!mainContent.mainContent && !!preamble.childMarkdownRemark
+  const parsedMainContent = ssrList ? mainContent.mainContent : mainContent
+  const parsedPreamble = ssrList
     ? preamble.childMarkdownRemark.html
     : `<p>${preamble}</p>`
 
