@@ -1,7 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
 import { DateUtils } from "utils"
-import { SecondaryPageLayout, HtmlHead } from "components"
+import { SecondaryPageLayout, HtmlHead, Link } from "components"
 
 export default function TalkPageTemplate({ pageContext: { page } }) {
   return (

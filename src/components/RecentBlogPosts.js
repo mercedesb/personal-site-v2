@@ -1,6 +1,6 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { BlogListItem } from "components"
+import { useStaticQuery, graphql } from "gatsby"
+import { BlogListItem, Link } from "components"
 
 export function RecentBlogPosts() {
   const data = useStaticQuery(graphql`

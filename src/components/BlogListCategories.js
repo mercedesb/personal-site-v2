@@ -1,5 +1,6 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "components"
 import { ArrayUtils } from "utils"
 
 export function BlogListCategories({ path }) {
