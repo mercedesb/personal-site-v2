@@ -1,11 +1,11 @@
 import qs from "qs"
 import dayjs from "dayjs"
 
-const baseUrl = `https://${process.env.CONTENTFUL_HOST}/spaces/${process.env.CONTENTFUL_SPACE_ID}/entries`
+const baseUrl = `https://${process.env.GATSBY_CONTENTFUL_HOST}/spaces/${process.env.GATSBY_CONTENTFUL_SPACE_ID}/entries`
 const headers = {
   "Content-Type": "application/json",
   Accept: "application/json",
-  Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+  Authorization: `Bearer ${process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN}`,
 }
 
 async function fetchData({ path, method, data, headers }) {
