@@ -1,6 +1,6 @@
 import React from "react"
 import { Nav } from "components"
-import { ApplyTheme, ThemeProvider } from "components"
+import { ThemeProvider } from "components"
 
 export function BaseLayout({
   title,
@@ -19,7 +19,7 @@ export function BaseLayout({
 }) {
   return (
     <ThemeProvider>
-      <ApplyTheme>
+      <div className="px-8 pt-4 md:px-12 md:pt-12 lg:px-24 min-h-screen">
         <Nav />
         <div className={`relative overflow-hidden ${containerClassName}`}>
           {renderBeforeHeader && renderBeforeHeader()}
@@ -29,9 +29,7 @@ export function BaseLayout({
           {renderAfterHeader && renderAfterHeader()}
           <div className="flex flex-wrap justify-between">
             {renderBeforeMain && renderBeforeMain()}
-            <main
-              className={`w-full lg:pr-16 py-8 lg:w-3/5 z-10 ${mainClassName}`}
-            >
+            <main className={`w-full lg:pr-16 py-8 lg:w-3/5 ${mainClassName}`}>
               {children}
             </main>
             {renderAfterMain && renderAfterMain()}
@@ -42,7 +40,7 @@ export function BaseLayout({
           <footer className={`${footerClassName}`}>{renderFooter()}</footer>
         )}
         {renderAfterFooter && renderAfterFooter()}
-      </ApplyTheme>
+      </div>
     </ThemeProvider>
   )
 }

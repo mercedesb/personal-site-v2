@@ -13,7 +13,7 @@ export function SecondaryPageLayout({
       renderBeforeMain={() =>
         backgroundIcon && (
           <div
-            className="hidden absolute w-1/2 text-brown-900 top-0 right-0 opacity-05 pr-8 lg:block dark:text-brown-100"
+            className="hidden absolute w-1/2 text-brown-900 top-0 right-0 opacity-05 pr-8 -z-10 lg:block dark:text-brown-100"
             dangerouslySetInnerHTML={{
               __html: backgroundIcon.svg.svg,
             }}

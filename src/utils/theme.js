@@ -3,6 +3,7 @@ import { Constants, LocalStorageUtils } from "utils"
 function setTheme(theme) {
   if (typeof window !== "undefined") {
     window.__theme = theme
+    document.documentElement.className = theme
   }
 }
 

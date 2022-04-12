@@ -1,4 +1,3 @@
-export { ApplyTheme } from "./layout/ApplyTheme"
 export { Arrow } from "./Arrow"
 export { BaseLayout } from "./layout/BaseLayout"
 export { BlogListCategories } from "./BlogListCategories"

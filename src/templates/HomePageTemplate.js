@@ -1,16 +1,10 @@
 import React from "react"
-import {
-  Nav,
-  HtmlHead,
-  RecentBlogPosts,
-  ThemeProvider,
-  ApplyTheme,
-} from "components"
+import { Nav, HtmlHead, RecentBlogPosts, ThemeProvider } from "components"
 
 export default function HomePageTemplate({ pageContext: { page } }) {
   return (
     <ThemeProvider>
-      <ApplyTheme>
+      <div className="px-8 pt-4 md:px-12 md:pt-12 lg:px-24 min-h-screen">
         <HtmlHead />
         <div className="lg:min-h-screen flex flex-col lg:justify-between lg:pb-12">
           <Nav withBorder />
@@ -44,7 +38,7 @@ export default function HomePageTemplate({ pageContext: { page } }) {
             </div>
           </div>
         </section>
-      </ApplyTheme>
+      </div>
     </ThemeProvider>
   )
 }
