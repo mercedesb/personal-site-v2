@@ -32,7 +32,6 @@
     "gatsby-remark-vscode": "^3.3.1",
     "gatsby-source-contentful": "^6.0.0",
     "gatsby-transformer-remark": "^5.0.0",
-    "lodash": "^4.17.21",
     "node-sass": "^4.14.1",
     "qs": "^6.10.3",
     "react": "^16.14.0",

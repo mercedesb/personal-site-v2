@@ -3,7 +3,7 @@ const dayjs = require("dayjs")
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
-const _ = require("lodash")
+const ArrayUtils = require("./src/utils/array")
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -201,7 +201,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const blogListPage = result.data.contentfulLandingPage
   const blogPosts = result.data.allContentfulBlogPost.edges.map(e => e.node)
-  const blogTags = _.flatten(blogPosts.map(node => node.tags))
+  const blogTags = ArrayUtils.flatten(blogPosts.map(node => node.tags))
   const postsPerPage = parseInt(process.env.BLOG_POST_PAGE_SIZE, 10)
   let numPages = Math.ceil(blogPosts.length / postsPerPage)
 
