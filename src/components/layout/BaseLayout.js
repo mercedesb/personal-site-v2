@@ -1,7 +1,6 @@
 import React from "react"
 import { Nav } from "components"
-import { ThemeProvider } from "./ThemeContext"
-import { ApplyTheme } from "./ApplyTheme"
+import { ThemeProvider } from "components"
 
 export function BaseLayout({
   title,
@@ -20,9 +19,9 @@ export function BaseLayout({
 }) {
   return (
     <ThemeProvider>
-      <ApplyTheme>
+      <div className="px-8 pt-4 md:px-12 md:pt-12 lg:px-24 min-h-screen">
         <Nav />
-        <div className={`relative ${containerClassName}`}>
+        <div className={`relative overflow-hidden ${containerClassName}`}>
           {renderBeforeHeader && renderBeforeHeader()}
           <header className={`pt-6 ${headerClassName}`}>
             <h2 className="my-0 lg:text-6xl">{title}</h2>
@@ -41,7 +40,7 @@ export function BaseLayout({
           <footer className={`${footerClassName}`}>{renderFooter()}</footer>
         )}
         {renderAfterFooter && renderAfterFooter()}
-      </ApplyTheme>
+      </div>
     </ThemeProvider>
   )
 }

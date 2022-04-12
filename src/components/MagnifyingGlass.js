@@ -1,5 +1,5 @@
 import React from "react"
-import { ThemeContext } from "./layout/ThemeContext"
+import { ThemeContext } from "components"
 
 export function MagnifyingGlass({ className }) {
   const { styleConfig } = React.useContext(ThemeContext)

@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
-import { Arrow } from "components"
+import { Arrow, Link } from "components"
 
 export function MobileNavigation({ links, logoSvg }) {
   const [showMobileMenu, setShowMobileMenu] = useState(false)

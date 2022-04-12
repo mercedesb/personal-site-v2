@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link } from "components"
 
 export function CtaLinks({ links }) {
   const parsedLinks = links.map(link => {

@@ -1,8 +1,5 @@
 import React from "react"
-import { ThemeContext } from "./layout/ThemeContext"
-import { ToggleButton } from "./ToggleButton"
-import { Sun } from "./Sun"
-import { Moon } from "./Moon"
+import { ThemeContext, ToggleButton, Sun, Moon } from "components"
 
 export function DarkModeToggle() {
   const { darkModeOn, setDarkModeOn } = React.useContext(ThemeContext)

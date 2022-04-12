@@ -1,6 +1,7 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import _ from "lodash"
+import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "components"
+import { ArrayUtils } from "utils"
 
 export function BlogListCategories({ path }) {
   const data = useStaticQuery(graphql`
@@ -16,8 +17,10 @@ export function BlogListCategories({ path }) {
   `)
   const tags = [
     ...new Set(
-      _.flatten(
-        _.compact(data.allContentfulBlogPost.edges.map(edge => edge.node.tags))
+      ArrayUtils.flatten(
+        ArrayUtils.compact(
+          data.allContentfulBlogPost.edges.map(edge => edge.node.tags)
+        )
       )
     ),
   ].sort()

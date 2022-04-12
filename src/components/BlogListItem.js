@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link } from "components"
 import { DateUtils } from "utils"
 import { ReadingTime } from "components"
 

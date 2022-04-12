@@ -22,6 +22,7 @@ exports.onRenderBody = ({ setHeadComponents }) => {
 
           function setTheme(theme) {
             window.__theme = theme
+            document.documentElement.className = theme
           }
 
           const preferredTheme = checkPreferredTheme()

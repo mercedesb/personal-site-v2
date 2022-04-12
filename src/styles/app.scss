@@ -11,23 +11,19 @@ body {
 
 /* THEMING */
 
-body {
+.light {
+  background-color: theme("colors.brown.100");
+  color: theme("colors.brown.900");
+}
 
-  .light {
+.dark {
+  background-color: theme("colors.brown.900");
+  color: theme("colors.brown.100");
+
+  input,
+  textarea {
     background-color: theme("colors.brown.100");
-    color: theme("colors.brown.900");
   }
-
-  .dark {
-    background-color: theme("colors.brown.900");
-    color: theme("colors.brown.100");
-
-    input,
-    textarea {
-      background-color: theme("colors.brown.100");
-    }
-  }
-
 }
 
 

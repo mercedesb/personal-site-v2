@@ -48,6 +48,7 @@ export function TalkListing() {
       {data.allContentfulTalkPage.edges.map(({ node }, index) => {
         return (
           <TalkListItem
+            key={node.id}
             title={node.title}
             urlSegment={node.urlSegment}
             iconSvg={node.iconSvg ? node.iconSvg.svg.svg : ""}
