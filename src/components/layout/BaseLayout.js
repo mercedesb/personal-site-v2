@@ -21,7 +21,7 @@ export function BaseLayout({
     <ThemeProvider>
       <div className="px-6 pt-4 md:px-12 md:pt-12 lg:px-24 min-h-screen">
         <Nav />
-        <div className={`relative overflow-hidden px-2 ${containerClassName}`}>
+        <div className={`relative px-2 ${containerClassName}`}>
           {renderBeforeHeader && renderBeforeHeader()}
           <header className={`pt-6 ${headerClassName}`}>
             <h2 className="my-0 lg:text-6xl">{title}</h2>

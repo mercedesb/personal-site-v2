@@ -22,7 +22,7 @@ export function BlogSearch() {
         />
       </label>
       <button type="submit" className="w-8 h-8 -ml-9">
-        <MagnifyingGlass className="w-8" />
+        <MagnifyingGlass className="w-8" thick />
       </button>
     </form>
   )

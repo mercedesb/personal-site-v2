@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react"
-import { BaseLayout, BlogListItem, BlogSearch, HtmlHead } from "components"
+import {
+  SecondaryPageLayout,
+  BlogListItem,
+  BlogSearch,
+  HtmlHead,
+  MagnifyingGlass,
+} from "components"
 import { useContentful } from "utils"
 import { useLocation } from "@reach/router"
 import qs from "qs"
@@ -29,7 +35,7 @@ export default function Search() {
   }, [location.search]) //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <BaseLayout title="Search">
+    <SecondaryPageLayout title="Search" backgroundIcon={MagnifyingGlass}>
       <React.Fragment>
         <HtmlHead
           title="Search"
@@ -50,6 +56,6 @@ export default function Search() {
             return <BlogListItem key={post.id} post={post} />
           })}
       </React.Fragment>
-    </BaseLayout>
+    </SecondaryPageLayout>
   )
 }
