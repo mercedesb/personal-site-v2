@@ -7,10 +7,6 @@ module.exports = {
       body: ["Poppins", "sans-serif"],
     },
     extend: {
-      screens: {
-        light: { raw: "(prefers-color-scheme: light)" },
-        dark: { raw: "(prefers-color-scheme: dark)" },
-      },
       colors: {
         black: "#252627",
         brown: {

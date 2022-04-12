@@ -7,6 +7,12 @@ import { Moon } from "./Moon"
 export function DarkModeToggle() {
   const { darkModeOn, setDarkModeOn } = React.useContext(ThemeContext)
 
+  if (typeof window === "undefined") {
+    // Never server-side render this, since we can't determine
+    // the correct initial state until we get to the client.
+    return null
+  }
+
   return (
     <div className="flex items-center ml-auto">
       <div className={`w-6 mr-1 ${darkModeOn ? "" : "hidden"}`} />

@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react"
-import { SessionStorageUtils } from "utils"
+import { Constants, Theme } from "utils"
 import resolveConfig from "tailwindcss/resolveConfig"
 import tailwindConfig from "../../../tailwind.config.js"
 
@@ -10,41 +10,27 @@ export const ThemeContext = createContext({
 })
 
 export function ThemeProvider({ children }) {
-  const LOCAL_STORAGE_KEY = "theme"
-  const LIGHT = "light"
-  const DARK = "dark"
+  // set in Gatsby's onRenderBody (via ./utils/theme.js)
+  const [theme, setTheme] = useState(
+    !!window ? window.__theme : Constants.LIGHT_THEME
+  )
 
   const styleConfig = resolveConfig(tailwindConfig)
 
-  const darkModePrefFromSessionStorage = SessionStorageUtils.get(
-    LOCAL_STORAGE_KEY
-  )
-  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
-  const darkModeFromMediaQuery = !mediaQuery || mediaQuery.matches
-
-  let initialTheme
-  if (darkModePrefFromSessionStorage !== null) {
-    initialTheme = darkModePrefFromSessionStorage
-  } else {
-    initialTheme = darkModeFromMediaQuery ? DARK : LIGHT
-  }
-
-  const [theme, setTheme] = useState(initialTheme)
-
   const toggleTheme = on => {
     if (on) {
-      setTheme(DARK)
-      SessionStorageUtils.set(LOCAL_STORAGE_KEY, DARK)
+      Theme.setPreferredTheme(Constants.DARK_THEME)
+      setTheme(Constants.DARK_THEME)
     } else {
-      setTheme(LIGHT)
-      SessionStorageUtils.set(LOCAL_STORAGE_KEY, LIGHT)
+      Theme.setPreferredTheme(Constants.LIGHT_THEME)
+      setTheme(Constants.LIGHT_THEME)
     }
   }
 
   return (
     <ThemeContext.Provider
       value={{
-        darkModeOn: theme === DARK,
+        darkModeOn: theme === Constants.DARK_THEME,
         setDarkModeOn: toggleTheme,
         styleConfig: styleConfig,
       }}

@@ -13,16 +13,6 @@ body {
 
 body {
 
-  @media (prefers-color-scheme: dark) {
-    background-color: theme("colors.brown.900");
-    color: theme("colors.brown.100");
-
-    input,
-    textarea {
-      background-color: theme("colors.brown.100");
-    }
-  }
-
   .light {
     background-color: theme("colors.brown.100");
     color: theme("colors.brown.900");

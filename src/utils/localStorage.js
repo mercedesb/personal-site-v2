@@ -1,34 +1,30 @@
-const sessionStorageUtil = {
+const localStorageUtil = {
   get: key => {
     if (typeof window === "undefined") {
       return null
     } else {
-      const data = sessionStorage.getItem(key)
+      const data = localStorage.getItem(key)
       if (!data) {
         return null
       }
-      const { value } = JSON.parse(data)
-      return value
+      return JSON.parse(data)
     }
   },
   set: (key, value) => {
     if (typeof window !== "undefined" && typeof value !== undefined) {
-      const data = {
-        value,
-      }
-      sessionStorage.setItem(key, JSON.stringify(data))
+      localStorage.setItem(key, JSON.stringify(value))
     }
   },
   remove: key => {
     if (typeof window !== "undefined") {
-      sessionStorage.removeItem(key)
+      localStorage.removeItem(key)
     }
   },
   clear: () => {
     if (typeof window !== "undefined") {
-      sessionStorage.clear()
+      localStorage.clear()
     }
   },
 }
 
-export default sessionStorageUtil
+export default localStorageUtil
