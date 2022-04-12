@@ -12,9 +12,9 @@ export function DarkModeToggle() {
 
   return (
     <div className="flex items-center ml-auto">
-      <div className={`w-6 mr-1 ${darkModeOn ? "" : "hidden"}`} />
+      <div className={`w-6 mr-2 ${darkModeOn ? "" : "hidden"}`} />
       <Sun
-        className={`w-6 mr-1 ${darkModeOn ? "hidden" : ""}`}
+        className={`w-6 mr-2 ${darkModeOn ? "hidden" : ""}`}
         fill={!darkModeOn}
       />
       <ToggleButton
@@ -22,9 +22,9 @@ export function DarkModeToggle() {
         onChange={setDarkModeOn}
         value={darkModeOn}
       />
-      <div className={`w-6 ml-1 ${darkModeOn ? "hidden" : ""}`} />
+      <div className={`w-6 ml-2 ${darkModeOn ? "hidden" : ""}`} />
       <Moon
-        className={`w-6 ml-1 ${darkModeOn ? "" : "hidden"}`}
+        className={`w-6 ml-2 ${darkModeOn ? "" : "hidden"}`}
         fill={darkModeOn}
       />
     </div>

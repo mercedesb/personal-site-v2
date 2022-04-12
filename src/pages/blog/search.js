@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react"
 import { BaseLayout, BlogListItem, BlogSearch, HtmlHead } from "components"
 import { useContentful } from "utils"
+import { useLocation } from "@reach/router"
 import qs from "qs"
 
 export default function Search() {
   const { searchBlogPosts } = useContentful()
+  const location = useLocation()
 
   const [query, setQuery] = useState("")
   const [blogPosts, setBlogPosts] = useState([])
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.location.search) {
-      const queryParams = qs.parse(window.location.search.substring(1))
+    if (location.search) {
+      const queryParams = qs.parse(location.search.substring(1))
       const searchTerm = queryParams["q"]
       setQuery(searchTerm)
 
@@ -24,7 +26,7 @@ export default function Search() {
         )
       })
     }
-  }, []) //eslint-disable-line react-hooks/exhaustive-deps
+  }, [location.search]) //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <BaseLayout title="Search">
