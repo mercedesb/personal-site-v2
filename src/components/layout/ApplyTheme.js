@@ -1,5 +1,5 @@
 import React from "react"
-import { ThemeContext } from "./ThemeContext"
+import { ThemeContext } from "components"
 
 export function ApplyTheme({ children }) {
   const { darkModeOn } = React.useContext(ThemeContext)

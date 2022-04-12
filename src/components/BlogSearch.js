@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { navigate } from "@reach/router"
-import { MagnifyingGlass } from "./MagnifyingGlass"
+import { MagnifyingGlass } from "components"
 
 export function BlogSearch() {
   const [query, setQuery] = useState("")

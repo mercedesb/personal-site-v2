@@ -1,7 +1,6 @@
 import React from "react"
 import { Nav } from "components"
-import { ThemeProvider } from "./ThemeContext"
-import { ApplyTheme } from "./ApplyTheme"
+import { ApplyTheme, ThemeProvider } from "components"
 
 export function BaseLayout({
   title,
