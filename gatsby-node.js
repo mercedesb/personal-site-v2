@@ -202,7 +202,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const blogListPage = result.data.contentfulLandingPage
   const blogPosts = result.data.allContentfulBlogPost.edges.map(e => e.node)
   const blogTags = ArrayUtils.flatten(blogPosts.map(node => node.tags))
-  const postsPerPage = parseInt(process.env.BLOG_POST_PAGE_SIZE, 10)
+  const postsPerPage = parseInt(process.env.GATSBY_BLOG_POST_PAGE_SIZE, 10)
   let numPages = Math.ceil(blogPosts.length / postsPerPage)
 
   // Create blog list pages for page numbers
