@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { DarkModeToggle } from "../DarkModeToggle"
 import { DesktopNavigation, MobileNavigation } from "components"
 
 export function Nav({ withBorder }) {
@@ -23,7 +24,10 @@ export function Nav({ withBorder }) {
   `)
 
   return (
-    <React.Fragment>
+    <div>
+      <div className="flex">
+        <DarkModeToggle />
+      </div>
       <DesktopNavigation
         withBorder={withBorder}
         links={data.contentfulHome.contentfulchildren}
@@ -33,6 +37,6 @@ export function Nav({ withBorder }) {
         links={data.contentfulHome.contentfulchildren}
         logoSvg={data.contentfulIcon.svg.svg}
       />
-    </React.Fragment>
+    </div>
   )
 }
