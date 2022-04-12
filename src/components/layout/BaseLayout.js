@@ -21,7 +21,7 @@ export function BaseLayout({
     <ThemeProvider>
       <ApplyTheme>
         <Nav />
-        <div className={`relative ${containerClassName}`}>
+        <div className={`relative overflow-hidden ${containerClassName}`}>
           {renderBeforeHeader && renderBeforeHeader()}
           <header className={`pt-6 ${headerClassName}`}>
             <h2 className="my-0 lg:text-6xl">{title}</h2>
@@ -29,7 +29,9 @@ export function BaseLayout({
           {renderAfterHeader && renderAfterHeader()}
           <div className="flex flex-wrap justify-between">
             {renderBeforeMain && renderBeforeMain()}
-            <main className={`w-full lg:pr-16 py-8 lg:w-3/5 ${mainClassName}`}>
+            <main
+              className={`w-full lg:pr-16 py-8 lg:w-3/5 z-10 ${mainClassName}`}
+            >
               {children}
             </main>
             {renderAfterMain && renderAfterMain()}
