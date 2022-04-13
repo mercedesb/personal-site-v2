@@ -19,7 +19,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
-  const filterDate = dayjs().format("YYYY-MM-DD")
+  const filterDate = dayjs().add(1, "day").format("YYYY-MM-DD")
 
   const result = await graphql(`
     query {
