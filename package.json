@@ -20,7 +20,7 @@
     "dayjs": "^1.11.9",
     "fontsource-libre-baskerville": "^3.1.5",
     "fontsource-poppins": "^3.1.5",
-    "gatsby": "^4.0.0",
+    "gatsby": "^4.25.7",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-lodash": "^5.0.0",
     "gatsby-plugin-react-helmet": "^5.0.0",
