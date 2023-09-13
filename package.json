@@ -17,7 +17,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "dayjs": "^1.10.8",
+    "dayjs": "^1.11.9",
     "fontsource-libre-baskerville": "^3.1.5",
     "fontsource-poppins": "^3.1.5",
     "gatsby": "^4.0.0",
