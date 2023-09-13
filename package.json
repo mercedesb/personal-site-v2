@@ -33,7 +33,7 @@
     "gatsby-source-contentful": "^6.0.0",
     "gatsby-transformer-remark": "^5.0.0",
     "node-sass": "^4.14.1",
-    "qs": "^6.10.3",
+    "qs": "^6.11.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0"
