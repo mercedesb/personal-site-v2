@@ -15,6 +15,8 @@ module.exports = {
     title: `Mercedes Bernard | Software engineering leader`,
   },
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
