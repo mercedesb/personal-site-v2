@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "license": "0BSD",
   "engines": {
-    "node": "14.17.0"
+    "node": "18.2.0"
   },
   "scripts": {
     "build": "gatsby build",
