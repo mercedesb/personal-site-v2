@@ -9,6 +9,16 @@ import {
   HtmlHead,
 } from "components"
 
+export function Head({ pageContext: { page } }) {
+  return (
+    <HtmlHead
+      title={page.title}
+      description={page.preamble ? page.preamble.preamble : null}
+      path={page.urlSegment}
+    />
+  )
+}
+
 export default function BlogListTemplate({
   data,
   location,
@@ -31,11 +41,6 @@ export default function BlogListTemplate({
       )}
     >
       <React.Fragment>
-        <HtmlHead
-          title={page.title}
-          description={page.preamble ? page.preamble.preamble : null}
-          path={page.urlSegment}
-        />
         {blogPosts.map(({ node }, index) => {
           return <BlogListItem key={node.id} post={node} />
         })}

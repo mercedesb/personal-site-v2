@@ -1,5 +1,4 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import AppleIcon57 from "../assets/favicon/apple-icon-57x57.png"
 import AppleIcon60 from "../assets/favicon/apple-icon-60x60.png"
 import AppleIcon72 from "../assets/favicon/apple-icon-72x72.png"
@@ -30,11 +29,7 @@ export function HtmlHead({
     : "Mercedes Bernard is a values-driven, growth-oriented software engineering leader"
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang: "en-US",
-      }}
-    >
+    <>
       <meta charSet="utf-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -469,6 +464,6 @@ export function HtmlHead({
         // End Rollbar Snippet
       }`}
       </script>
-    </Helmet>
+    </>
   )
 }

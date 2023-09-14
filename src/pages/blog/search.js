@@ -10,6 +10,16 @@ import { useContentful } from "utils"
 import { useLocation } from "@reach/router"
 import qs from "qs"
 
+export function Head({ pageContext: { page } }) {
+  return (
+    <HtmlHead
+      title="Search"
+      description="Search blog posts for something specific"
+      path="/blog/search"
+    />
+  )
+}
+
 export default function Search() {
   const { searchBlogPosts } = useContentful()
   const location = useLocation()
@@ -37,11 +47,6 @@ export default function Search() {
   return (
     <SecondaryPageLayout title="Search" backgroundIcon={MagnifyingGlass}>
       <React.Fragment>
-        <HtmlHead
-          title="Search"
-          description="Search blog posts for something specific"
-          path="/blog/search"
-        />
         <BlogSearch />
         {!!query && (
           <h3 className="font-body">

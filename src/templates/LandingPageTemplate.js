@@ -7,6 +7,16 @@ import {
   TalkListing,
 } from "components"
 
+export function Head({ pageContext: { page } }) {
+  return (
+    <HtmlHead
+      title={page.title}
+      description={page.preamble ? page.preamble.preamble : null}
+      path={page.urlSegment}
+    />
+  )
+}
+
 export default function LandingTemplate({ pageContext: { page } }) {
   return (
     <SecondaryPageLayout
@@ -21,11 +31,6 @@ export default function LandingTemplate({ pageContext: { page } }) {
         )
       }
     >
-      <HtmlHead
-        title={page.title}
-        description={page.preamble ? page.preamble.preamble : null}
-        path={page.urlSegment}
-      />
       <div
         dangerouslySetInnerHTML={{
           __html: page.mainContent.childMarkdownRemark.html,

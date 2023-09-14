@@ -15,7 +15,6 @@ module.exports = {
     title: `Mercedes Bernard | Software engineering leader`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
