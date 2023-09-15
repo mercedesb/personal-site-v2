@@ -1,0 +1,32 @@
+@mixin draw {
+  $i: 300;
+  @while $i <= 2000 {
+    &--#{$i} {
+      &:hover {
+        path {
+          stroke-dasharray: $i;
+          animation: draw-#{$i} 1.5s;
+
+          @media (prefers-reduced-motion: reduce) {
+            animation: none;
+          }
+        }
+      }
+
+      @keyframes draw-#{$i} {
+        from {
+          stroke-dashoffset: $i;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      $i: $i + 20;
+    }
+  }
+}
+
+.Draw {
+  @include draw;
+}
