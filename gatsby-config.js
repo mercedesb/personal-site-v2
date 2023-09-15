@@ -8,6 +8,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 const path = require("path")
+const adapter = require("gatsby-adapter-netlify")
 
 module.exports = {
   /* Your site config here */
@@ -80,6 +81,8 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-netlify`,
   ],
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false,
+  }),
 }
