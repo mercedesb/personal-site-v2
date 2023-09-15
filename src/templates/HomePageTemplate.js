@@ -1,6 +1,10 @@
 import React from "react"
 import { Nav, HtmlHead, RecentBlogPosts, ThemeProvider } from "components"
 
+export function Head({ pageContext: { page } }) {
+  return <HtmlHead />
+}
+
 export default function HomePageTemplate({ pageContext: { page } }) {
   return (
     <ThemeProvider>

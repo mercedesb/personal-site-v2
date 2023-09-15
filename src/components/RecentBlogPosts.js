@@ -5,10 +5,7 @@ import { BlogListItem, Link } from "components"
 export function RecentBlogPosts() {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulBlogPost(
-        sort: { fields: publishDate, order: DESC }
-        limit: 3
-      ) {
+      allContentfulBlogPost(sort: { publishDate: DESC }, limit: 3) {
         edges {
           node {
             id

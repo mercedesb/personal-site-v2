@@ -7,7 +7,6 @@ export function SecondaryPageLayout({
   backgroundIcon,
   ...props
 }) {
-  debugger
   return (
     <BaseLayout
       title={title}

@@ -9,6 +9,16 @@ import {
   HtmlHead,
 } from "components"
 
+export function Head({ pageContext: { page } }) {
+  return (
+    <HtmlHead
+      title={page.title}
+      description={page.preamble ? page.preamble.preamble : null}
+      path={page.urlSegment}
+    />
+  )
+}
+
 export default function BlogListTemplate({
   data,
   location,
@@ -31,11 +41,6 @@ export default function BlogListTemplate({
       )}
     >
       <React.Fragment>
-        <HtmlHead
-          title={page.title}
-          description={page.preamble ? page.preamble.preamble : null}
-          path={page.urlSegment}
-        />
         {blogPosts.map(({ node }, index) => {
           return <BlogListItem key={node.id} post={node} />
         })}
@@ -47,7 +52,7 @@ export default function BlogListTemplate({
 export const query = graphql`
   query($skip: Int!, $limit: Int!, $filter: ContentfulBlogPostFilterInput) {
     allContentfulBlogPost(
-      sort: { fields: publishDate, order: DESC }
+      sort: { publishDate: DESC }
       limit: $limit
       skip: $skip
       filter: $filter

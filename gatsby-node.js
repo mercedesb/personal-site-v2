@@ -87,7 +87,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
-      allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
+      allContentfulBlogPost(sort: { publishDate: DESC }) {
         edges {
           node {
             id

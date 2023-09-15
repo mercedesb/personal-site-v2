@@ -2,14 +2,19 @@ import React from "react"
 import { DateUtils } from "utils"
 import { SecondaryPageLayout, HtmlHead, Link } from "components"
 
+export function Head({ pageContext: { page } }) {
+  return (
+    <HtmlHead
+      title={page.title}
+      description={`Find resources for Mercedes Bernard's ${page.title} talk`}
+      path={`speaking/${page.urlSegment}`}
+    />
+  )
+}
+
 export default function TalkPageTemplate({ pageContext: { page } }) {
   return (
     <SecondaryPageLayout title={page.title} backgroundIcon={page.iconSvg}>
-      <HtmlHead
-        title={page.title}
-        description={`Find resources for Mercedes Bernard's ${page.title} talk`}
-        path={`speaking/${page.urlSegment}`}
-      />
       <div
         dangerouslySetInnerHTML={{
           __html: page.mainContent.childMarkdownRemark.html,
