@@ -1,9 +1,10 @@
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,jsx,ts,tsx}",
-    "./src/components/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.js",
+    "./src/**/*.jsx",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
   ],
-  purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
   darkMode: "class",
   theme: {
     fontFamily: {
@@ -45,6 +46,5 @@ module.exports = {
       },
     },
   },
-  variants: {},
   plugins: [],
 }
