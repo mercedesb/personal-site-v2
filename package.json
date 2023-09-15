@@ -23,6 +23,7 @@
     "gatsby": "^5.12.4",
     "gatsby-plugin-image": "^3.12.0",
     "gatsby-plugin-lodash": "^6.12.0",
+    "gatsby-plugin-netlify": "^5.1.0",
     "gatsby-plugin-sharp": "^5.12.0",
     "gatsby-remark-autolink-headers": "^6.12.0",
     "gatsby-remark-external-links": "^0.0.4",
