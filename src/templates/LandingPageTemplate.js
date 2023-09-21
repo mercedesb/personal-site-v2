@@ -5,6 +5,7 @@ import {
   HtmlHead,
   SecondaryPageLayout,
   TalkListing,
+  NewsletterSignup,
 } from "components"
 
 export function Head({ pageContext: { page } }) {
@@ -38,6 +39,7 @@ export default function LandingTemplate({ pageContext: { page } }) {
       ></div>
       {page.showTalks && <TalkListing />}
       {page.showContact && <ContactForm />}
+      {page.showNewsletterSignup && <NewsletterSignup />}
     </SecondaryPageLayout>
   )
 }

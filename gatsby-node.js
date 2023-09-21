@@ -83,6 +83,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             showBlogPosts
             showTalks
             showContact
+            showNewsletterSignup
             urlSegment
           }
         }

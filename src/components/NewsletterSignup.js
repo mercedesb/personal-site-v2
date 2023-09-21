@@ -1,18 +1,17 @@
 import React from "react"
 
-export function NewsletterSignup({ landingPage }) {
-  // let formId = 5608759 // blog post form
-  // if (landingPage) {
-  //   formId = 5626825
-  // }
+export function NewsletterSignup({ onBlogPost }) {
+  let formId = 5626825 // landing page form
+  if (onBlogPost) {
+    formId = 5608759 // blog post form
+  }
 
-  console.log('landingPage:', landingPage)
 
 return (
     <>
       <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
       <form
-        action='https://app.convertkit.com/forms/5608759/subscriptions'
+        action={`https://app.convertkit.com/forms/${formId}/subscriptions`}
         class="seva-form formkit-form flex flex-col w-full"
         method="post"
         data-sv-form="5608759"
@@ -24,18 +23,22 @@ return (
       >
         <div class="formkit-background" style={{opacity: 0.2}}></div>
         <div data-style="minimal">
-          <div
-            class="formkit-header"
-            data-element="header"
-          >
-            <h2 class="text-xl">Well-Rounded Dev</h2>
-          </div>
-          <div
-            class="formkit-subheader"
-            data-element="subheader"
-          >
-            <p>Liked this post? Subscribe to receive semi-regular thoughts by email.</p>
-          </div>
+          { onBlogPost && (
+            <>
+              <div
+                class="formkit-header"
+                data-element="header"
+              >
+                <h2 class="text-xl">Well-Rounded Dev</h2>
+              </div>
+              <div
+                class="formkit-subheader"
+                data-element="subheader"
+                >
+                <p>Liked this post? Subscribe to receive semi-regular thoughts by email.</p>
+              </div>
+            </>
+          )}
           <ul
             class="formkit-alert formkit-alert-error"
             data-element="errors"

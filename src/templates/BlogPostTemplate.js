@@ -48,7 +48,7 @@ export default function BlogPostTemplate({ pageContext: { post } }) {
         preamble={post.preamble}
       />
       <div class="border border-brown-900 pt-8 p-8 my-8">
-        <NewsletterSignup />
+        <NewsletterSignup onBlogPost={true} />
       </div>
     </TertiaryPageLayout>
   )
