@@ -6,6 +6,7 @@ import {
   PostCategories,
   PostSocialShare,
   HtmlHead,
+  NewsletterSignup,
 } from "components"
 
 export function Head({ pageContext: { post } }) {
@@ -46,6 +47,9 @@ export default function BlogPostTemplate({ pageContext: { post } }) {
         title={post.title}
         preamble={post.preamble}
       />
+      <div class="border border-brown-900 pt-8 p-8 my-8">
+        <NewsletterSignup />
+      </div>
     </TertiaryPageLayout>
   )
 }
