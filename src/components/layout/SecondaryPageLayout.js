@@ -19,9 +19,11 @@ export function SecondaryPageLayout({
             }}
           ></div>
         ) : (
-          <div className="hidden absolute w-1/2 text-brown-900 top-0 right-0 opacity-05 pr-8 -z-10 lg:block dark:text-brown-100">
-            {React.createElement(backgroundIcon)}
-          </div>
+          backgroundIcon && (
+            <div className="hidden absolute w-1/2 text-brown-900 top-0 right-0 opacity-05 pr-8 -z-10 lg:block dark:text-brown-100">
+              {React.createElement(backgroundIcon)}
+            </div>
+          )
         )
       }
       {...props}
