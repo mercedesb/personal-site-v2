@@ -1,225 +1,239 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "../../tailwind.config.js";
+@import "tailwindcss";
 
 body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: theme("fontFamily.body");
+  background-color: theme("colors.brown.100");
+  color: theme("colors.brown.900");
+  min-height: 100vh;
 }
 
 /* THEMING */
 
-.light {
+html.light,
+html.light body {
   background-color: theme("colors.brown.100");
   color: theme("colors.brown.900");
 }
 
-.dark {
+html.dark,
+html.dark body {
   background-color: theme("colors.brown.900");
   color: theme("colors.brown.100");
 }
 
-.dark input, .dark textarea {
+html.light input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.light textarea,
+html.light select {
+  background-color: theme("colors.white");
+}
+
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.dark textarea,
+html.dark select {
   background-color: theme("colors.brown.100");
 }
 
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: theme("fontFamily.display");
-  font-weight: theme("fontWeight.normal");
-  line-height: 1.4;
-  margin-bottom: theme("spacing.4");
-}
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: theme("fontFamily.display");
+    font-weight: theme("fontWeight.normal");
+    line-height: 1.4;
+    margin-bottom: theme("spacing.4");
+  }
 
-h1,
-h2 {
-  font-size: theme("fontSize.3xl");
-}
-
-h3 {
-  font-size: theme("fontSize.2xl");
-}
-
-h4 {
-  font-size: theme("fontSize.xl");
-}
-
-h5 {
-  font-size: theme("fontSize.xl");
-}
-
-h6 {
-  font-size: theme("fontSize.xl");
-}
-
-@media (min-width: theme("screens.lg")) {
   h1,
   h2 {
-    font-size: theme("fontSize.5xl");
-  }
-
-  h3 {
-    font-size: theme("fontSize.4xl");
-  }
-
-  h4 {
     font-size: theme("fontSize.3xl");
   }
 
-  h5 {
+  h3 {
     font-size: theme("fontSize.2xl");
   }
-}
 
-a {
-  text-decoration: underline;
-}
+  h4 {
+    font-size: theme("fontSize.xl");
+  }
 
-p {
-  margin-bottom: theme("spacing.8");
-  line-height: 1.5;
-}
+  h5 {
+    font-size: theme("fontSize.xl");
+  }
 
-svg,
-svg g,
-svg path {
-  stroke: currentColor;
-  stroke-width: 2;
-}
+  h6 {
+    font-size: theme("fontSize.xl");
+  }
 
-.logo svg, .logo svg g, .logo svg path {
-  stroke-width: 5px;
-}
+  @media (min-width: theme("screens.lg")) {
+    h1,
+    h2 {
+      font-size: theme("fontSize.5xl");
+    }
 
-main ol, main ul {
-  margin: 0 0 theme("spacing.5") theme("spacing.4");
-}
+    h3 {
+      font-size: theme("fontSize.4xl");
+    }
 
-main ol {
-  list-style-type: decimal;
-}
+    h4 {
+      font-size: theme("fontSize.3xl");
+    }
 
-main ul {
-  list-style-type: disc;
-}
+    h5 {
+      font-size: theme("fontSize.2xl");
+    }
+  }
 
-main li > ul,
-main li > ol {
-  margin-bottom: 0;
-}
+  a {
+    text-decoration: underline;
+  }
 
-main li > p {
-  margin-bottom: 0;
-}
+  p {
+    margin-bottom: theme("spacing.8");
+    line-height: 1.5;
+  }
 
-main blockquote {
-  border: theme("borderWidth.DEFAULT") solid theme("borderColor.current");
-  padding: theme("spacing.8");
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto theme("spacing.4");
-}
+  svg,
+  svg g,
+  svg path {
+    stroke: currentColor;
+    stroke-width: 2;
+  }
 
-@media (min-width: theme("screens.lg")) {
+  .logo svg, .logo svg g, .logo svg path {
+    stroke-width: 5px;
+  }
+
+  main ol, main ul {
+    margin: 0 0 theme("spacing.5") theme("spacing.4");
+  }
+
+  main ol {
+    list-style-type: decimal;
+  }
+
+  main ul {
+    list-style-type: disc;
+  }
+
+  main li > ul,
+  main li > ol {
+    margin-bottom: 0;
+  }
+
+  main li > p {
+    margin-bottom: 0;
+  }
+
   main blockquote {
-    width: theme("width.4/5");
+    border: theme("borderWidth.DEFAULT") solid currentColor;
+    padding: theme("spacing.8");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto theme("spacing.4");
   }
-}
 
-main blockquote p {
-  margin: 0;
-}
+  @media (min-width: theme("screens.lg")) {
+    main blockquote {
+      width: theme("width.4/5");
+    }
+  }
 
-main pre {
-  white-space: pre-wrap;
-  margin: 0 0 theme("spacing.8");
-}
+  main blockquote p {
+    margin: 0;
+  }
 
-main a {
-  font-weight: theme("fontWeight.bold");
-}
+  main pre {
+    white-space: pre-wrap;
+    margin: 0 0 theme("spacing.8");
+  }
 
-.BlogPost-tag:not(:last-child)::after {
-  content: ", ";
-}
+  main a {
+    font-weight: theme("fontWeight.bold");
+  }
 
-/* Add just enough margin so elements don't get crowded by focus state */
-button,
-input,
-textarea {
-  margin-top: 2px;
-}
+  .BlogPost-tag:not(:last-child)::after {
+    content: ", ";
+  }
 
-/* Remove the dotted outline in Firefox */
-button::-moz-focus-inner,
-input::-moz-focus-inner,
-textarea::-moz-focus-inner,
-a::-moz-focus-inner {
-  border-style: none;
-  margin-top: 2px;
-}
+  /* Add just enough margin so elements don't get crowded by focus state */
+  button,
+  input,
+  textarea {
+    margin-top: 2px;
+  }
 
-button:focus,
-input:focus,
-textarea:focus,
-a:focus {
-  /* Adds a white border around the button, along with a brown glow. The white and brown have a color contrast ratio of at least 3:1, which means this will work against any background color. */
-  box-shadow: 0 0 0 2px theme("colors.white"),
-    0 0 3px 5px theme("colors.brown.500");
-  /* NOTE: box-shadow is invisible in Windows high-contrast mode, so we need to add a transparent outline, which actually does show up in high-contrast mode. */
-  outline: 2px dotted transparent;
-  outline-offset: 2px;
-}
+  /* Remove the dotted outline in Firefox */
+  button::-moz-focus-inner,
+  input::-moz-focus-inner,
+  textarea::-moz-focus-inner,
+  a::-moz-focus-inner {
+    border-style: none;
+    margin-top: 2px;
+  }
 
-.up {
-  transform: rotate(180deg);
-}
+  button:focus,
+  input:focus,
+  textarea:focus,
+  a:focus {
+    /* Adds a white border around the button, along with a brown glow. The white and brown have a color contrast ratio of at least 3:1, which means this will work against any background color. */
+    box-shadow: 0 0 0 2px theme("colors.white"),
+      0 0 3px 5px theme("colors.brown.500");
+    /* NOTE: box-shadow is invisible in Windows high-contrast mode, so we need to add a transparent outline, which actually does show up in high-contrast mode. */
+    outline: 2px dotted transparent;
+    outline-offset: 2px;
+  }
 
-.left {
-  transform: rotate(-90deg);
-}
+  .up {
+    transform: rotate(180deg);
+  }
 
-.right {
-  transform: rotate(90deg);
-}
+  .left {
+    transform: rotate(-90deg);
+  }
 
-.toggle::before {
-  content: '';
-  position: absolute;
-  width: theme('spacing.3');
-  height: theme('spacing.3');
-  top: .375rem;
-  left: .125rem;
-  background-color: theme('colors.white');
-  border-radius: 9999px;
-  z-index: 10;
-  transition-duration: 200ms;
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-@media (prefers-reduced-motion: reduce) {
+  .right {
+    transform: rotate(90deg);
+  }
+
   .toggle::before {
-    transition: none;
+    content: '';
+    position: absolute;
+    width: theme('spacing.3');
+    height: theme('spacing.3');
+    top: .375rem;
+    left: .125rem;
+    background-color: theme('colors.white');
+    border-radius: 9999px;
+    z-index: 10;
+    transition-duration: 200ms;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
-}
+  @media (prefers-reduced-motion: reduce) {
+    .toggle::before {
+      transition: none;
+    }
+  }
 
-.toggle.checked::before {
-  transform: translate(135%);
-}
+  .toggle.checked::before {
+    transform: translate(135%);
+  }
 
-input:focus ~ .toggle {
-  /* Adds a white border around the button, along with a brown glow. The white and brown have a color contrast ratio of at least 3:1, which means this will work against any background color. */
-  box-shadow: 0 0 0 2px theme("colors.white"),
-    0 0 3px 5px theme("colors.brown.500");
-  /* NOTE: box-shadow is invisible in Windows high-contrast mode, so we need to add a transparent outline, which actually does show up in high-contrast mode. */
-  outline: 2px dotted transparent;
-  outline-offset: 2px;
+  input:focus ~ .toggle {
+    /* Adds a white border around the button, along with a brown glow. The white and brown have a color contrast ratio of at least 3:1, which means this will work against any background color. */
+    box-shadow: 0 0 0 2px theme("colors.white"),
+      0 0 3px 5px theme("colors.brown.500");
+    /* NOTE: box-shadow is invisible in Windows high-contrast mode, so we need to add a transparent outline, which actually does show up in high-contrast mode. */
+    outline: 2px dotted transparent;
+    outline-offset: 2px;
+  }
 }

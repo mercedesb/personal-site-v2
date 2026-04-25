@@ -1,7 +1,15 @@
 import React, { useState, createContext } from "react"
 import { Constants, Theme } from "utils"
-import resolveConfig from "tailwindcss/resolveConfig"
-import tailwindConfig from "../../../tailwind.config.js"
+
+const STYLE_CONFIG = {
+  theme: {
+    colors: {
+      brown: {
+        "900": "#3D2B0A",
+      },
+    },
+  },
+}
 
 export const ThemeContext = createContext({
   darkModeOn: null,
@@ -14,8 +22,6 @@ export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(
     typeof window !== "undefined" ? window.__theme : Constants.LIGHT_THEME
   )
-
-  const styleConfig = resolveConfig(tailwindConfig)
 
   const toggleTheme = on => {
     if (on) {
@@ -32,7 +38,7 @@ export function ThemeProvider({ children }) {
       value={{
         darkModeOn: theme === Constants.DARK_THEME,
         setDarkModeOn: toggleTheme,
-        styleConfig: styleConfig,
+        styleConfig: STYLE_CONFIG,
       }}
     >
       {children}
