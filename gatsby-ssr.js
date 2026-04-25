@@ -3,6 +3,7 @@ const React = require("react")
 exports.onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
     <script
+      key="initialize-theme"
       dangerouslySetInnerHTML={{
         __html: `
         (function () {

@@ -1,5 +1,4 @@
 import React from "react"
-import { graphql } from "gatsby"
 import {
   BaseLayout,
   BlogListItem,
@@ -20,13 +19,9 @@ export function Head({ pageContext: { page } }) {
 }
 
 export default function BlogListTemplate({
-  data,
   location,
-  pageContext: { page },
+  pageContext: { page, blogPosts, pageInfo },
 }) {
-  const blogPosts = data.allContentfulBlogPost.edges
-  const pageInfo = data.allContentfulBlogPost.pageInfo
-
   return (
     <BaseLayout
       title={page.title}
@@ -41,44 +36,10 @@ export default function BlogListTemplate({
       )}
     >
       <React.Fragment>
-        {blogPosts.map(({ node }, index) => {
-          return <BlogListItem key={node.id} post={node} />
+        {blogPosts.map(post => {
+          return <BlogListItem key={post.id} post={post} />
         })}
       </React.Fragment>
     </BaseLayout>
   )
 }
-
-export const query = graphql`
-  query($skip: Int!, $limit: Int!, $filter: ContentfulBlogPostFilterInput) {
-    allContentfulBlogPost(
-      sort: { publishDate: DESC }
-      limit: $limit
-      skip: $skip
-      filter: $filter
-    ) {
-      edges {
-        node {
-          id
-          title
-          preamble {
-            childMarkdownRemark {
-              html
-            }
-          }
-          mainContent {
-            mainContent
-          }
-          publishDate
-          urlSegment
-        }
-      }
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        pageCount
-        currentPage
-      }
-    }
-  }
-`

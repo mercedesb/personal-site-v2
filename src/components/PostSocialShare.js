@@ -5,6 +5,7 @@ export function PostSocialShare({ urlSegment, title, preamble }) {
     <div className="flex items-center">
       <a
         href={`https://twitter.com/intent/tweet?url=http://www.mercedesbernard.com/blog/${urlSegment}/&text=${title}&via=mercedescodes`}
+        aria-label="Share this post on X (Twitter)"
       >
         <svg
           className="w-8 mr-4"
@@ -32,6 +33,7 @@ export function PostSocialShare({ urlSegment, title, preamble }) {
       </a>
       <a
         href={`https://www.linkedin.com/shareArticle?mini=true&url=http://www.mercedesbernard.com/blog/${urlSegment}/&title=${title}&summary=${preamble}`}
+        aria-label="Share this post on LinkedIn"
       >
         <svg
           className="w-8"

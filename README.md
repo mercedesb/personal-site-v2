@@ -4,6 +4,15 @@
 
 The project is built in the [Gatsby Cloud](https://www.gatsbyjs.com/dashboard/) and deployed via [Netlify](https://app.netlify.com/sites/). Pushes to the `production` branch and updates to CMS content are deployed automatically. If your content is not being deployed, check that your instance in Gatsby Cloud has not gone idle.
 
+## Runtime and dependency notes
+
+- This project now targets Node.js 22 LTS. If you use `asdf`, the repo includes `.tool-versions` with `nodejs 22.22.0`.
+- Install dependencies with `npm install` (lockfile is npm v10+).
+- `gatsby-source-contentful` requires these environment variables for build/develop:
+  - `GATSBY_CONTENTFUL_SPACE_ID`
+  - `GATSBY_CONTENTFUL_ACCESS_TOKEN`
+- React remains on 18.x and Tailwind remains on 3.x intentionally for Gatsby/plugin compatibility.
+
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**

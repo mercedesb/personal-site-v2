@@ -202,21 +202,44 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const blogListPage = result.data.contentfulLandingPage
   const blogPosts = result.data.allContentfulBlogPost.edges.map(e => e.node)
-  const blogTags = ArrayUtils.flatten(blogPosts.map(node => node.tags))
-  const postsPerPage = parseInt(process.env.GATSBY_BLOG_POST_PAGE_SIZE, 10)
-  let numPages = Math.ceil(blogPosts.length / postsPerPage)
+  const publishedBlogPosts = blogPosts.filter(
+    node => node.publishDate && node.publishDate <= filterDate
+  )
+  const blogTags = ArrayUtils.flatten(
+    publishedBlogPosts.map(node => node.tags || [])
+  )
+  const configuredPostsPerPage = parseInt(
+    process.env.GATSBY_BLOG_POST_PAGE_SIZE,
+    10
+  )
+  const postsPerPage =
+    Number.isInteger(configuredPostsPerPage) && configuredPostsPerPage > 0
+      ? configuredPostsPerPage
+      : 10
+  if (postsPerPage !== configuredPostsPerPage) {
+    reporter.warn(
+      "GATSBY_BLOG_POST_PAGE_SIZE is missing or invalid. Falling back to 10."
+    )
+  }
+  let numPages = Math.ceil(publishedBlogPosts.length / postsPerPage)
 
   // Create blog list pages for page numbers
   Array.from({ length: numPages }).forEach((_, i) => {
+    const paginatedPosts = publishedBlogPosts.slice(
+      i * postsPerPage,
+      (i + 1) * postsPerPage
+    )
     createPage({
       path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-      component: path.resolve("./src/templates/BlogListTemplate.js"),
+        component: require.resolve(`./src/templates/BlogListTemplate.js`),
       context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        filter: { publishDate: { lte: filterDate } },
-        numPages,
-        currentPage: i + 1,
+        pageInfo: {
+          hasNextPage: i + 1 < numPages,
+          hasPreviousPage: i > 0,
+          pageCount: numPages,
+          currentPage: i + 1,
+        },
+        blogPosts: paginatedPosts,
         page: blogListPage,
       },
     })
@@ -224,21 +247,27 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Create blog list pages for each category
   blogTags.forEach(tag => {
-    const matchingPosts = blogPosts.filter(
+    const matchingPosts = publishedBlogPosts.filter(
       node => node.tags && node.tags.includes(tag)
     )
     numPages = Math.ceil(matchingPosts.length / postsPerPage)
 
     Array.from({ length: numPages }).forEach((_, i) => {
+      const paginatedPosts = matchingPosts.slice(
+        i * postsPerPage,
+        (i + 1) * postsPerPage
+      )
       createPage({
         path: i === 0 ? `/blog/${tag}` : `/blog/${tag}/${i + 1}`,
-        component: path.resolve("./src/templates/BlogListTemplate.js"),
+        component: require.resolve(`./src/templates/BlogListTemplate.js`),
         context: {
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          filter: { publishDate: { lte: filterDate }, tags: { glob: tag } },
-          numPages,
-          currentPage: i + 1,
+          pageInfo: {
+            hasNextPage: i + 1 < numPages,
+            hasPreviousPage: i > 0,
+            pageCount: numPages,
+            currentPage: i + 1,
+          },
+          blogPosts: paginatedPosts,
           page: blogListPage,
         },
       })
