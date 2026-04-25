@@ -31,7 +31,12 @@ export default function NotFound(props) {
                   stroke="#FFFFFF"
                   stroke-width="2"
                 ></path>
-                <a href="/" id="home" style={{ "text-decoration": "none" }}>
+                <a
+                  href="/"
+                  id="home"
+                  style={{ "text-decoration": "none" }}
+                  aria-label="Go to Home page"
+                >
                   <g transform="translate(237.481525, 124.411536) rotate(4.000000) translate(-237.481525, -124.411536) translate(62.981525, 89.911536)">
                     <path
                       d="M39.15625,0.277515625 C47.7994792,0.277515625 136.988281,0.277515625 306.722656,0.277515625 L348.957031,34.424 L306.722656,68.5704844 C136.36849,68.5704844 47.1796875,68.5704844 39.15625,68.5704844 C27.1210938,68.5704844 0,60.3712656 0,34.424 C8.09300721e-15,8.47673438 26.1914062,0.277515625 39.15625,0.277515625 Z"
@@ -56,7 +61,12 @@ export default function NotFound(props) {
                     </text>
                   </g>
                 </a>
-                <a href="/blog" id="blog" style={{ "text-decoration": "none" }}>
+                <a
+                  href="/blog"
+                  id="blog"
+                  style={{ "text-decoration": "none" }}
+                  aria-label="Go to Blog page"
+                >
                   <g transform="translate(315.790303, 235.064348) rotate(-4.000000) translate(-315.790303, -235.064348) translate(62.790303, 200.564348)">
                     <text
                       id="Blog"
@@ -84,6 +94,7 @@ export default function NotFound(props) {
                   href="/speaking"
                   id="speaking"
                   style={{ "text-decoration": "none" }}
+                  aria-label="Go to Speaking page"
                 >
                   <g transform="translate(288.574236, 349.409297) rotate(-1.000000) translate(-288.574236, -349.409297) translate(105.574236, 314.909297)">
                     <path
@@ -113,6 +124,7 @@ export default function NotFound(props) {
                   href="/about"
                   id="about"
                   style={{ "text-decoration": "none" }}
+                  aria-label="Go to About page"
                 >
                   <g transform="translate(206.462715, 461.831988) rotate(5.000000) translate(-206.462715, -461.831988) translate(2.462715, 427.331988)">
                     <path
