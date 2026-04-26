@@ -1,6 +1,7 @@
 const React = require("react")
 
-exports.onRenderBody = ({ setHeadComponents }) => {
+exports.onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
+  setHtmlAttributes({ lang: "en-US" })
   setHeadComponents([
     <script
       key="initialize-theme"

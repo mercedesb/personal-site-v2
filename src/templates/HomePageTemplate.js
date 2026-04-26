@@ -20,7 +20,7 @@ export default function HomePageTemplate({ pageContext: { page } }) {
                 alt="Mercedes Bernard speaking"
               />
               <h2
-                className="w-100 lg:w-2/3"
+                className="lg:w-2/3"
                 dangerouslySetInnerHTML={{
                   __html: page.preamble.childMarkdownRemark.html,
                 }}
